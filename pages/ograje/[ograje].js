@@ -26,15 +26,11 @@ import {
   PinText,
 } from "../../styles/pages/product/ProductAnimations";
 import { ThemeContext } from "styled-components";
-import { useWindowSize } from "react-use";
+import useWindowSize from "../../utils/useWindowSize";
 import _ from "lodash";
 import Navbar from "../../components/Navbar";
 import isTouchDevice from "../../utils/isTouchDevice";
 import { productLinks } from "../../public/data/data";
-
-gsap.registerPlugin(ScrollTrigger);
-
-var pinMargin = 2000;
 
 export async function getStaticPaths() {
   const paths = productLinks.map((link) => ({
@@ -58,9 +54,11 @@ export async function getStaticProps(context) {
   });
 
   return {
-    props: { ograje: ograje, index: index },
+    props: { ograje: ograje, index: index, key: index },
   };
 }
+
+var pinMargin = 2000;
 
 const Product = ({ index = 0 }) => {
   const themeContext = useContext(ThemeContext);
@@ -75,20 +73,20 @@ const Product = ({ index = 0 }) => {
       setGalleryHeight(
         document.getElementsByClassName("gallery-inner-wrapper")[0].offsetHeight
       );
-    }
 
-    KillProductAnimations();
-    setAnimations();
+      KillProductAnimations();
+      setAnimations();
+    }
   };
 
-  function setAnimations() {
-    if (width >= themeContext.breakpoints.xl) {
+  const setAnimations = () => {
+    if (window.innerWidth >= themeContext.breakpoints.xl) {
       ParallaxPictureAnimation({
         movementSpeed: pinMargin,
       });
       PinText({});
     }
-  }
+  };
 
   useEffect(() => {
     KillProductAnimations();
@@ -130,11 +128,7 @@ const Product = ({ index = 0 }) => {
         title={heroTitles[index]}
       />
       <WideContainer background={themeContext.colors.dark}>
-        <DescriptionAndGalleryWrapper
-          pinSpace={
-            width >= themeContext.breakpoints.xl ? `${pinMargin}px` : "0px"
-          }
-        >
+        <DescriptionAndGalleryWrapper>
           <DescriptionSection
             mainDescription={productMainDescription[index]}
             textArray={productTextArray[index]}

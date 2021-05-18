@@ -19,7 +19,7 @@ const LandingSection = ({ image, alt, title }) => {
   let titleToArray = [];
   titleToArray.push(title);
   const { height } = useWindowSize();
-  const layerRef = useRef();
+  let layerRef = useRef();
 
   useLayoutEffect(() => {
     FadeIn(".product-image-animation");
@@ -29,23 +29,22 @@ const LandingSection = ({ image, alt, title }) => {
     if (!isTouchDevice()) {
       LandingSectionPinAnimation({
         height: height,
-        layerRef: layerRef.current,
+        layerRef: layerRef,
         imageRef: ".image-pin",
       });
     }
   }, [height]);
 
   useEffect(() => {
-    console.log("dsds");
     LandingSectionPinAnimation({
       height: height,
-      layerRef: layerRef.current,
+      layerRef: layerRef,
       imageRef: ".image-pin",
     });
   }, []);
 
   return (
-    <LayerContainer ref={layerRef}>
+    <LayerContainer ref={(el) => (layerRef = el)}>
       <WideContainer>
         <ImageContainer>
           <Image

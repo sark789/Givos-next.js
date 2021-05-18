@@ -20,7 +20,7 @@ import {
 } from "./GallerySectionElements";
 import { ThemeContext } from "styled-components";
 import isTouchDevice from "../../../../utils/isTouchDevice";
-import { useWindowSize } from "react-use";
+import useWindowSize from "../../../../utils/useWindowSize";
 
 var titleImageOnTop = true;
 

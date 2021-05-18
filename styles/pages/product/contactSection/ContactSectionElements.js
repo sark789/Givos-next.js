@@ -22,19 +22,21 @@ export const ContactSectionContainer = styled.div`
 `;
 
 export const ContactTextWrapper = styled.div`
-  font-size: 2.25rem;
-  font-weight: 400;
-  line-height: 32px;
-
-  ${breakpoint("md")`
-        font-size: 3.5rem;
-        line-height: 50px;
-    `}
+  display: block;
 `;
 
 export const Span = styled.span`
   font-family: "Spectral", serif;
   display: block;
+  font-size: 2.25rem;
+  font-weight: 400;
+  line-height: 32px;
+  white-space: nowrap;
+
+  ${breakpoint("md")`
+        font-size: 3.5rem;
+        line-height: 50px;
+    `}
 `;
 
 export const TableContainer = styled.div`

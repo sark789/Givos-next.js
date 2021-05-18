@@ -10,7 +10,7 @@ import {
 } from "./ImageItemElements";
 import { TriggeredFadeIn } from "../../commonAnimations/TriggeredFadeIn";
 import { ThemeContext } from "styled-components";
-import { useWindowSize } from "react-use";
+import useWindowSize from "../../utils/useWindowSize";
 import FadeInOverlay from "../../commonAnimations/FadeInOverlay";
 
 var isInited,
@@ -58,7 +58,6 @@ const ImageItem = ({
   }, []);
 
   const pictureAnim = () => {
-    console.log(animateFadeIn);
     if (width >= themeContext.breakpoints.xl && animateFadeIn) {
       FadeInOverlay({
         itemRef: overlayRef.current,

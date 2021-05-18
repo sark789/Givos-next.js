@@ -27,7 +27,7 @@ import { ThemeContext } from "styled-components";
 import FadeIn from "../commonAnimations/FadeIn";
 import gsap from "gsap/dist/gsap";
 import FadeInWithOpacity from "../commonAnimations/FadeInWithOpacity";
-import { useWindowSize } from "react-use";
+import useWindowSize from "../utils/useWindowSize";
 import {
   aboutUsMainDescriptionData,
   aboutUsInfoData,

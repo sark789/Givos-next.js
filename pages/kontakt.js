@@ -22,7 +22,7 @@ import gsap from "gsap/dist/gsap";
 import Form from "../components/Form";
 import { formData } from "../public/data/data";
 import GoogleMaps from "../components/GoogleMaps";
-import { useWindowSize } from "react-use";
+import useWindowSize from "../utils/useWindowSize";
 import _ from "lodash";
 import { contactInfoData as data } from "../public/data/data";
 

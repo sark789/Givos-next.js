@@ -1,6 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+
+
+
+
     *{
         margin: 0;
         padding: 0;
@@ -49,7 +53,7 @@ const GlobalStyle = createGlobalStyle`
     p{ 
         font-family: 'Karla', sans-serif;
         font-weight: 400;
-        font-size: 1rem; 
+        font-size: 1rem;
     }
 
     a{

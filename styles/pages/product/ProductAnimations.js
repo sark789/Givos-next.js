@@ -43,15 +43,17 @@ export function PinText({ movementSpeed = 2000 }) {
 export function KillProductAnimations() {
   var tl = gsap.getById("gallery-parallax-animation");
   var tlTrig = ScrollTrigger.getById("gallery-parallax-animation-trigger");
-  if (tl) {
-    tl.kill();
-  }
-  if (tlTrig) {
-    tlTrig.kill();
-  }
 
   var tl2Trig = ScrollTrigger.getById("description-pin-trigger");
   if (tl2Trig) {
     tl2Trig.kill();
   }
+
+  if (tlTrig) {
+    tlTrig.kill();
+  }
+
+  /* if (tl) {
+    tl.kill();
+  } */
 }

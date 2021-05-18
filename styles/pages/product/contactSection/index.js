@@ -16,7 +16,7 @@ import {
   TableContainer,
   TableRow,
 } from "./ContactSectionElements";
-import { useWindowSize } from "react-use";
+import useWindowSize from "../../../../utils/useWindowSize";
 
 const ContactSection = () => {
   const themeContext = useContext(ThemeContext);
@@ -25,11 +25,14 @@ const ContactSection = () => {
   function isLargeDisplay() {
     return width >= themeContext.breakpoints.xl ? true : false;
   }
-
   return (
     <WideContainer>
       <ContactSectionContainer>
-        {!isLargeDisplay() && <SectionNumber number="04" color="black" />}
+        {!isLargeDisplay() && (
+          <div>
+            <SectionNumber number="04" color="black" />
+          </div>
+        )}
         <ContactTextWrapper>
           <Span>Vam je všeč</Span>
           <Span>kar vidite?</Span>

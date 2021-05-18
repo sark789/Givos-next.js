@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { BottomBorder, TopBorder } from "../../styles/commonStyles";
 import { onLinkHover } from "./LinkAnimations";
 import {
@@ -10,6 +10,7 @@ import {
 import { BsArrowRight } from "react-icons/bs";
 import { ThemeContext } from "styled-components";
 import Link from "next/link";
+import useWindowSize from "../../utils/useWindowSize";
 
 const LinkItem = ({
   text,
@@ -25,6 +26,7 @@ const LinkItem = ({
   const middleLineRef = useRef();
   const arrowRef = useRef();
   const themeContext = useContext(ThemeContext);
+  const { width: innerWidth } = useWindowSize();
 
   const handleHover = (e) => {
     onLinkHover({
@@ -74,10 +76,7 @@ const LinkItem = ({
                   top: "50%",
                   width: 0,
                   height:
-                    typeof window !== "undefined" &&
-                    window.innerWidth < themeContext.breakpoints.md
-                      ? "1px"
-                      : "2px",
+                    innerWidth < themeContext.breakpoints.md ? "1px" : "2px",
                 }}
               />
               {text}

@@ -31,7 +31,7 @@ import { SRLWrapper } from "simple-react-lightbox";
 import FadeIn from "../../commonAnimations/FadeIn";
 import BorderAnimation from "../../commonAnimations/BorderAnimation";
 import gsap from "gsap";
-import { useWindowSize } from "react-use";
+import useWindowSize from "../../utils/useWindowSize";
 import { ThemeContext } from "styled-components";
 import LinkItem from "../../components/LinkItem";
 import {
@@ -62,7 +62,7 @@ export async function getStaticProps(context) {
   });
 
   return {
-    props: { galerija: galerija, type: type },
+    props: { galerija: galerija, type: type, key: type },
   };
 }
 

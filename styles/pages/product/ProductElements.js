@@ -7,9 +7,10 @@ export const DescriptionAndGalleryWrapper = styled.div`
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  padding-bottom: ${(props) => props.pinSpace};
+  padding-bottom: 0px;
 
   ${breakpoint("xl")`
         flex-direction: row-reverse;
+        padding-bottom: 2000px;
         `}
 `;

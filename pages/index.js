@@ -26,7 +26,7 @@ import Copyright from "../components/Copyright";
 import { WideContainer } from "../styles/commonStyles";
 import Navbar from "../components/Navbar";
 import isTouchDevice from "../utils/isTouchDevice";
-import { useWindowSize } from "react-use";
+import useWindowSize from "../utils/useWindowSize";
 import {
   heroImages,
   heroImageAlts,
@@ -58,6 +58,12 @@ const Hero = ({
   const { width } = useWindowSize();
   const [prevWidth, setPrevWidth] = useState(width);
 
+  function isLargeDisplay() {
+    if (width) {
+      return isTouchDevice();
+    }
+  }
+
   const addToRefs = (el) => {
     if (el && !containerRefs.current.includes()) {
       containerRefs.current.push(el);
@@ -68,8 +74,7 @@ const Hero = ({
   let mobileStartArray = [];
   images.map((image, index) => mobileStartArray.push(index));
   let startArray =
-    typeof window !== "undefined" &&
-    window.innerWidth >= themeContext.breakpoints.md
+    width >= themeContext.breakpoints.md
       ? [0, 1, 2]
       : [...mobileStartArray.slice(1), 0];
 
@@ -189,7 +194,6 @@ const Hero = ({
   //on item click
   const onItemClickHandler = (e) => {
     let passVal;
-    console.log("click");
     scrollDirection =
       containerIndex > parseInt(e.target.dataset.key) + 1 ? "top" : "bottom";
     passVal =
@@ -342,15 +346,15 @@ const Hero = ({
     <div style={{ position: "absolute", backgroundColor: "white" }}>
       <Navbar
         isForHeroPage
-        background={isTouchDevice() ? "white" : "transparent"}
-        color={isTouchDevice() ? "black" : "white"}
+        background={isLargeDisplay() ? "white" : "transparent"}
+        color={isLargeDisplay() ? "black" : "white"}
       />
-      <HeroContainer isDesktop={!isTouchDevice()} className="hero-container">
+      <HeroContainer isDesktop={!isLargeDisplay()} className="hero-container">
         {reconstructedImageArray.map((imageIndex, index) => (
           <ImageContainer
             key={images[index]}
             ref={addToRefs}
-            isDesktop={!isTouchDevice()}
+            isDesktop={!isLargeDisplay()}
           >
             <PictureOverlay
               className={`image-animation scale-in-${imageIndex}`}
@@ -368,7 +372,7 @@ const Hero = ({
           </ImageContainer>
         ))}
       </HeroContainer>
-      {!isTouchDevice() ? (
+      {!isLargeDisplay() ? (
         <SliderMenu
           titles={titles}
           currentIndex={containerIndex}

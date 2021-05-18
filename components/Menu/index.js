@@ -12,6 +12,7 @@ import Navbar from "../Navbar";
 import { ThemeContext } from "styled-components";
 import { MenuAnimation } from "./MenuAnimations";
 import { MenuContext } from "../../utils/MenuContext";
+import useWindowSize from "../../utils/useWindowSize";
 
 let isInited = false;
 
@@ -22,6 +23,7 @@ const Menu = ({ menuInfoData }) => {
   let navbarRef = useRef(null);
   const [isMenuOpened, setIsMenuOpened] = useContext(MenuContext);
   const { shouldOpenMenu, canAnimate } = isMenuOpened;
+  const { width } = useWindowSize();
 
   const onComplete = () => {
     shouldOpenMenu && (document.body.style.overflow = "unset");
@@ -60,19 +62,18 @@ const Menu = ({ menuInfoData }) => {
             linkAnimationClass="link-text-animation"
           />
         </InnerContainer>
-        {typeof window !== "undefined" &&
-          window.innerWidth >= themeContext.breakpoints.md && (
-            <ExtraInfoContainer ref={(el) => (infoRef = el)}>
-              {menuInfoData.map((item) => (
-                <InfoElement key={item.title}>
-                  <span style={{ color: "rgba(255, 255, 255, 0.6)" }}>
-                    {item.title}
-                  </span>
-                  <span>{item.text}</span>
-                </InfoElement>
-              ))}
-            </ExtraInfoContainer>
-          )}
+        {width >= themeContext.breakpoints.md && (
+          <ExtraInfoContainer ref={(el) => (infoRef = el)}>
+            {menuInfoData.map((item) => (
+              <InfoElement key={item.title}>
+                <span style={{ color: "rgba(255, 255, 255, 0.6)" }}>
+                  {item.title}
+                </span>
+                <span>{item.text}</span>
+              </InfoElement>
+            ))}
+          </ExtraInfoContainer>
+        )}
       </WideContainer>
     </MenuContainer>
   );

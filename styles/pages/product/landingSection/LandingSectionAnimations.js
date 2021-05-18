@@ -1,7 +1,5 @@
-import gsap from "gsap/dist/gsap";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export function LandingSectionPinAnimation({ layerRef, imageRef, height }) {
   var trig1 = ScrollTrigger.getById("pin-landing-pic");
@@ -12,6 +10,7 @@ export function LandingSectionPinAnimation({ layerRef, imageRef, height }) {
   if (trig2) {
     trig2.kill();
   }
+
   var anim = gsap.getById("landing-pic-height");
   if (anim) {
     anim.kill();
@@ -25,6 +24,7 @@ export function LandingSectionPinAnimation({ layerRef, imageRef, height }) {
   gsap.set(layerRef, {
     height: height,
   });
+
   gsap.to(layerRef, {
     id: "landing-pic-height",
     scrollTrigger: {
