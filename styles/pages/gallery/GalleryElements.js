@@ -3,6 +3,7 @@ import { breakpoint } from "styled-components-breakpoint";
 import { Image } from "../../../components/ImageItem/ImageItemElements";
 
 export const InnerContainer = styled.div`
+  visibility: hidden;
   display: flex;
   flex-direction: column;
   padding: ${(props) => `${props.theme.paddings.largeDesktop} 0`};

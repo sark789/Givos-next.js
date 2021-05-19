@@ -1,13 +1,13 @@
-import React, { useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import { BottomBorder, TopBorder } from "../../styles/commonStyles";
 import { InnerContainer, CopyrightContainer } from "./CopyrightElements";
 
 var year = "2021";
 
 const Copyright = ({ color = "black" }) => {
-  useLayoutEffect(() => {
+  useEffect(() => {
     year = new Date().getFullYear();
-  });
+  }, []);
 
   return (
     <CopyrightContainer>

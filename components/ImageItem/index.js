@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext, useLayoutEffect } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import {
   Image,
   ImageIndex,
@@ -12,7 +12,7 @@ import { TriggeredFadeIn } from "../../commonAnimations/TriggeredFadeIn";
 import { ThemeContext } from "styled-components";
 import useWindowSize from "../../utils/useWindowSize";
 import FadeInOverlay from "../../commonAnimations/FadeInOverlay";
-import gsap from "gsap/dist/gsap";
+import gsap from "gsap";
 
 var hasResized = false;
 
@@ -33,17 +33,12 @@ const ImageItem = ({
   const themeContext = useContext(ThemeContext);
   const { width, canAnimate } = useWindowSize();
 
-  useLayoutEffect(() => {
-    gsap.set(containerRef.current, {
-      autoAlpha: 0,
-    });
-  }, []);
-
   useEffect(() => {
+    gsap.set(containerRef.current, {
+      visibility: "visible",
+    });
+
     if (canAnimate) {
-      gsap.set(containerRef.current, {
-        autoAlpha: 1,
-      });
       if (width < themeContext.breakpoints.xl) {
         TriggeredFadeIn({ itemRef: containerRef.current });
       } else if (width >= themeContext.breakpoints.xl && animateFadeIn) {

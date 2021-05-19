@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import {
   Bullet,
   SlideItemContainer,
@@ -7,10 +7,12 @@ import {
 } from "./SliderMenuElements";
 import FadeIn from "../../commonAnimations/FadeIn/index";
 import { ChangeColor, DrawBullet } from "./SliderMenuAnimations";
+import gsap from "gsap";
 
 var animatingFirstTime = true;
 
 const SliderMenu = ({ titles, currentIndex, onItemClick }) => {
+  const containerRef = useRef();
   const containerRefs = useRef([]);
   containerRefs.current = [];
   const bulletRefs = useRef([]);
@@ -57,12 +59,15 @@ const SliderMenu = ({ titles, currentIndex, onItemClick }) => {
   }, [currentIndex]);
 
   //init animation
-  useLayoutEffect(() => {
+  useEffect(() => {
+    gsap.set(containerRef.current, {
+      visibility: "visible",
+    });
     FadeIn(containerRefs.current, 0.4);
   }, []);
 
   return (
-    <SliderMenuContainer className="cont">
+    <SliderMenuContainer className="cont" ref={containerRef}>
       {rearangedTitles.map((title, index) => (
         <SlideItemContainer key={index}>
           <>

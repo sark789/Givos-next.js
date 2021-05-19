@@ -4,6 +4,7 @@ import { BottomBorder } from "../../styles/commonStyles";
 import { LinkItemContainer, LinkText } from "../LinkItem/LinkItemElements";
 
 export const NavbarContainer = styled.nav`
+  visibility: hidden;
   height: 4rem;
   z-index: 10;
   background-color: ${(props) => props.background};

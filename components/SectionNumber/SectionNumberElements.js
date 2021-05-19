@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { breakpoint } from "styled-components-breakpoint";
 
 export const SectionNumberContainer = styled.div`
+  visibility: hidden;
   display: flex;
   flex-direction: ${(props) => (props.vertical ? "column" : "row")};
   padding: ${(props) => `${props.theme.paddings.small} 0`};

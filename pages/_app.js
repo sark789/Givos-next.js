@@ -17,6 +17,13 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import isTouchDevice from "../utils/isTouchDevice";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+/* import { CSSRulePlugin } from "gsap/CSSRulePlugin"; */
+
+const scrollTrigger = ScrollTrigger;
+const scrollTo = ScrollToPlugin;
+/* const css = CSSRulePlugin; */
 
 const theme = {
   breakpoints: {
@@ -48,6 +55,8 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
+    /* const plugins = [scrollTrigger, scrollTo]; */
+    /* console.log(plugins); */
     if (router.pathname !== "/" || isTouchDevice()) {
       window.onbeforeunload = function () {
         window.scrollTo(0, 0);

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import DescriptionSection from "../../styles/pages/product/DescriptionSection";
 import LandingSection from "../../styles/pages/product/landingSection";
 import {
@@ -16,7 +16,7 @@ import {
 import GallerySection from "../../styles/pages/product/gallerySection";
 import ContactSection from "../../styles/pages/product/contactSection";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { WideContainer } from "../../styles/commonStyles";
 import { DescriptionAndGalleryWrapper } from "../../styles/pages/product/ProductElements";
 import Footer from "../../components/Footer";
@@ -61,6 +61,7 @@ export async function getStaticProps(context) {
 var pinMargin = 2000;
 
 const Product = ({ index = 0 }) => {
+  const containerRef = useRef();
   const themeContext = useContext(ThemeContext);
   const { width } = useWindowSize();
 
@@ -104,6 +105,9 @@ const Product = ({ index = 0 }) => {
   }, [width]);
 
   useEffect(() => {
+    gsap.set(containerRef.current, {
+      visibility: "visible",
+    });
     onResizeHandler();
 
     let debouncedFunction = _.debounce(onResizeHandler, 700);
@@ -128,7 +132,7 @@ const Product = ({ index = 0 }) => {
         title={heroTitles[index]}
       />
       <WideContainer background={themeContext.colors.dark}>
-        <DescriptionAndGalleryWrapper>
+        <DescriptionAndGalleryWrapper ref={containerRef}>
           <DescriptionSection
             mainDescription={productMainDescription[index]}
             textArray={productTextArray[index]}

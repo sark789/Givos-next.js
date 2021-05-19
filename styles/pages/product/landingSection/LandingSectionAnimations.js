@@ -1,5 +1,7 @@
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function LandingSectionPinAnimation({ layerRef, imageRef, height }) {
   var trig1 = ScrollTrigger.getById("pin-landing-pic");

@@ -1,5 +1,5 @@
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,7 +9,9 @@ export function ParallaxPictureAnimation({ movementSpeed = 2000 }) {
       .offsetHeight -
     document.getElementsByClassName("description-pin")[0].offsetHeight;
 
-  var tl = gsap.timeline().fromTo(
+  console.log(position);
+
+  gsap.fromTo(
     ".gallery-parallax-animation",
     { y: 0 },
     {

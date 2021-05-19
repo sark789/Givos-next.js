@@ -1,10 +1,4 @@
-import React, {
-  useContext,
-  useLayoutEffect,
-  useEffect,
-  useState,
-  useRef,
-} from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import {
   InnerContainerWithSmallPadding,
   WideContainer,
@@ -25,7 +19,7 @@ import ImageItem from "../components/ImageItem";
 import Footer from "../components/Footer";
 import { ThemeContext } from "styled-components";
 import FadeIn from "../commonAnimations/FadeIn";
-import gsap from "gsap/dist/gsap";
+import gsap from "gsap";
 import FadeInWithOpacity from "../commonAnimations/FadeInWithOpacity";
 import useWindowSize from "../utils/useWindowSize";
 import {
@@ -33,8 +27,6 @@ import {
   aboutUsInfoData,
   aboutUsPictureInfo,
 } from "../public/data/data";
-
-var shouldAnimate = true;
 
 const AboutUs = ({
   mainDescription = aboutUsMainDescriptionData,
@@ -45,12 +37,6 @@ const AboutUs = ({
   const textContentRef = useRef();
   const [isPictureLoaded, setIsPictureLoaded] = useState(false);
   const { width, canAnimate } = useWindowSize();
-
-  useLayoutEffect(() => {
-    gsap.set(".about-us-container", {
-      visibility: "hidden",
-    });
-  }, []);
 
   useEffect(() => {
     if (canAnimate) {

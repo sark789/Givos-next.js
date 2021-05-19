@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const HeroContainer = styled.div`
+  visibility: hidden;
   overflow: hidden;
   display: flex;
   flex-direction: column;

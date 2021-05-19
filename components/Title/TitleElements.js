@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { breakpoint } from "styled-components-breakpoint";
 
 export const Content = styled.div`
+  visibility: hidden;
   z-index: 2;
   position: absolute;
   top: 30%;

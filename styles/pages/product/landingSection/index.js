@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { WideContainer } from "../../../../styles/commonStyles";
 import {
   Image,
@@ -14,6 +14,7 @@ import SectionNumber from "../../../../components/SectionNumber";
 import { LandingSectionPinAnimation } from "./LandingSectionAnimations";
 import { useWindowSize } from "react-use";
 import isTouchDevice from "../../../../utils/isTouchDevice";
+import gsap from "gsap";
 
 const LandingSection = ({ image, alt, title }) => {
   let titleToArray = [];
@@ -21,8 +22,19 @@ const LandingSection = ({ image, alt, title }) => {
   const { height } = useWindowSize();
   let layerRef = useRef();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
+    gsap.set(layerRef, {
+      visibility: "visible",
+      height: "calc(100vh - 4rem)",
+    });
+
     FadeIn(".product-image-animation");
+
+    LandingSectionPinAnimation({
+      height: height,
+      layerRef: layerRef,
+      imageRef: ".image-pin",
+    });
   }, []);
 
   useEffect(() => {
@@ -34,14 +46,6 @@ const LandingSection = ({ image, alt, title }) => {
       });
     }
   }, [height]);
-
-  useEffect(() => {
-    LandingSectionPinAnimation({
-      height: height,
-      layerRef: layerRef,
-      imageRef: ".image-pin",
-    });
-  }, []);
 
   return (
     <LayerContainer ref={(el) => (layerRef = el)}>

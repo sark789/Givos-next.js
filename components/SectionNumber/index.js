@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   Line,
   LineWrapper,
@@ -7,6 +7,7 @@ import {
   SectionNumberContainer,
 } from "./SectionNumberElements";
 import { SectionNumberTriggerAnimation } from "./SectionNumberAnimations";
+import gsap from "gsap";
 
 const SectionNumber = ({
   vertical = false,
@@ -17,8 +18,12 @@ const SectionNumber = ({
 }) => {
   const num1Ref = useRef();
   const num2Ref = useRef();
+  const containerRef = useRef();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
+    gsap.set(containerRef.current, {
+      visibility: "visible",
+    });
     if (!dontAnimate) {
       SectionNumberTriggerAnimation({
         lineRef: `.line-to-animate${number}`,
@@ -32,7 +37,7 @@ const SectionNumber = ({
   }, []);
 
   return (
-    <SectionNumberContainer vertical={vertical}>
+    <SectionNumberContainer vertical={vertical} ref={containerRef}>
       <NumberWrapper>
         <Number ref={num1Ref}>{number}</Number>
       </NumberWrapper>

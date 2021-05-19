@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import { BottomBorder, WideContainer } from "../../styles/commonStyles";
 import { MenuContext } from "../../utils/MenuContext";
 import { InitialNavbarAnimation, NavbarPin } from "./NavbarAnimations";
@@ -8,7 +8,8 @@ import {
   NavbarLinkContainer,
 } from "./NavbarElements";
 import LinkItem from "../LinkItem";
-var isInited = false;
+import gsap from "gsap";
+
 const Navbar = (
   {
     isForHeroPage = false,
@@ -28,7 +29,10 @@ const Navbar = (
     }
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
+    gsap.set(".navbar-container", {
+      visibility: "visible",
+    });
     InitialNavbarAnimation({
       lineRef: !isForHeroPage ? lineRef.current : null,
       linkRef: ".navbar-link-animation",

@@ -1,10 +1,4 @@
-import React, {
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-  useContext,
-} from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import _ from "lodash";
 import { ThemeContext } from "styled-components";
 import {
@@ -19,9 +13,9 @@ import TitleAnimation from "../components/Title/TitleAnimation";
 import ScaleIn from "../commonAnimations/ScaleIn";
 import SliderMenu from "../components/SliderMenu";
 import UnderlineAnimation from "../components/Underline/UnderlineAnimations";
-import { gsap } from "gsap/dist/gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import Copyright from "../components/Copyright";
 import { WideContainer } from "../styles/commonStyles";
 import Navbar from "../components/Navbar";
@@ -239,9 +233,13 @@ const Hero = ({
   };
 
   //init animation
-  useLayoutEffect(() => {
+  useEffect(() => {
     inited = false;
     canScroll = false;
+
+    gsap.set(".hero-container", {
+      visibility: "visible",
+    });
 
     FadeIn(".image-animation");
 

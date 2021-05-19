@@ -3,6 +3,7 @@ import { breakpoint } from "styled-components-breakpoint";
 import { BottomBorder, TopBorder } from "../../commonStyles";
 
 export const InnerContainer = styled.div`
+  visibility: hidden;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

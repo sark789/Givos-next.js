@@ -1,10 +1,4 @@
-import React, {
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-  useContext,
-} from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import {
   InnerContainer,
   TitleWrapper,
@@ -72,6 +66,7 @@ const Gallery = ({
   gallerySubtitle = subtitle,
   galleryLinks = links,
 }) => {
+  const containerRef = useRef();
   let titleRef = useRef();
   let subtitleRef = useRef();
   let lineRef = useRef();
@@ -90,14 +85,8 @@ const Gallery = ({
     (item) => item !== galleryLinks[type]
   );
 
-  useLayoutEffect(() => {
-    gsap.set(titleWrapperRef, {
-      visibility: "hidden",
-    });
-  }, []);
-
   useEffect(() => {
-    gsap.set(titleWrapperRef, {
+    gsap.set(containerRef.current, {
       visibility: "visible",
     });
 
@@ -113,7 +102,7 @@ const Gallery = ({
     <div style={{ position: "absolute", backgroundColor: "white" }}>
       <Navbar />
       <WideContainer>
-        <InnerContainer>
+        <InnerContainer ref={containerRef}>
           <OuterTitleWrapper ref={(el) => (titleWrapperRef = el)}>
             <TitleWrapper>
               <h1 ref={(el) => (titleRef = el)}>Galerija</h1>

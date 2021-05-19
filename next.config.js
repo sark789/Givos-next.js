@@ -1,7 +1,7 @@
 const withImages = require("next-images");
-module.exports = withImages({
-  esModule: true,
-  webpack(config, options) {
-    return config;
-  },
-});
+const withTM = require("next-transpile-modules")([
+  "gsap",
+  "gsap/ScrollTrigger",
+]);
+
+module.exports = withImages(withTM());

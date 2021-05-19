@@ -1,8 +1,9 @@
-import { gsap } from "gsap/dist/gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
 export const FooterFadeIn = ({ itemRef, containerRef }) => {
+  gsap.registerPlugin(ScrollTrigger);
+
   var tl = gsap.timeline({
     scrollTrigger: {
       trigger: itemRef,

@@ -7,7 +7,7 @@ import { InnerContainer } from "./FooterElements";
 import { FooterFadeIn } from "./FooterAnimations";
 import isTouchDevice from "../../utils/isTouchDevice";
 import Copyright from "../Copyright";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Footer = ({ color = "black" }) => {
   const themeContext = useContext(ThemeContext);

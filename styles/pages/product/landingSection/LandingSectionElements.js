@@ -1,9 +1,9 @@
-import { camelCase } from "lodash";
 import styled from "styled-components";
 
 export const LayerContainer = styled.div`
+  visibility: hidden;
   background-color: white;
-  height: calc(100vh - 4rem);
+  height: calc(100vh);
   z-index: -5;
   padding-top: 5rem;
 `;

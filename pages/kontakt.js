@@ -18,7 +18,7 @@ import { ThemeContext } from "styled-components";
 import FadeIn from "../commonAnimations/FadeIn";
 import FadeInOverlay from "../commonAnimations/FadeInOverlay";
 import BorderAnimation from "../commonAnimations/BorderAnimation";
-import gsap from "gsap/dist/gsap";
+import gsap from "gsap";
 import Form from "../components/Form";
 import { formData } from "../public/data/data";
 import GoogleMaps from "../components/GoogleMaps";

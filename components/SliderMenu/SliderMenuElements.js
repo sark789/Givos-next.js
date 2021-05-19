@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { breakpoint } from "styled-components-breakpoint";
 
 export const SliderMenuContainer = styled.div`
+  visibility: hidden;
   position: fixed;
   bottom: 7.5%;
   display: flex;
