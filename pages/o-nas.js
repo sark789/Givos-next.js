@@ -34,6 +34,8 @@ import {
   aboutUsPictureInfo,
 } from "../public/data/data";
 
+var shouldAnimate = true;
+
 const AboutUs = ({
   mainDescription = aboutUsMainDescriptionData,
   infoData = aboutUsInfoData,
@@ -42,7 +44,7 @@ const AboutUs = ({
   const themeContext = useContext(ThemeContext);
   const textContentRef = useRef();
   const [isPictureLoaded, setIsPictureLoaded] = useState(false);
-  const { width } = useWindowSize();
+  const { width, canAnimate } = useWindowSize();
 
   useLayoutEffect(() => {
     gsap.set(".about-us-container", {
@@ -51,17 +53,19 @@ const AboutUs = ({
   }, []);
 
   useEffect(() => {
-    gsap.set(".about-us-container", {
-      visibility: "visible",
-    });
-    FadeIn(".aboutus-title-animation", 0, 0.7);
-    FadeInWithOpacity({
-      itemRef: textContentRef.current,
-      ease: "power2.out",
-      delay: 1.5,
-      duration: 0.8,
-    });
-  }, []);
+    if (canAnimate) {
+      gsap.set(".about-us-container", {
+        visibility: "visible",
+      });
+      FadeIn(".aboutus-title-animation", 0, 0.7);
+      FadeInWithOpacity({
+        itemRef: textContentRef.current,
+        ease: "power2.out",
+        delay: 1.5,
+        duration: 0.8,
+      });
+    }
+  }, [canAnimate]);
 
   return (
     <div style={{ position: "absolute", backgroundColor: "white" }}>
@@ -112,7 +116,6 @@ const AboutUs = ({
                   animateFadeIn={
                     width < themeContext.breakpoints.xl ? false : true
                   }
-                  setIsPictureLoaded={setIsPictureLoaded}
                 />
               </ImageContainer>
             </PaddingContainer>

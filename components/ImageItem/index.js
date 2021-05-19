@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext, useLayoutEffect } from "react";
 import {
   Image,
   ImageIndex,
@@ -12,9 +12,9 @@ import { TriggeredFadeIn } from "../../commonAnimations/TriggeredFadeIn";
 import { ThemeContext } from "styled-components";
 import useWindowSize from "../../utils/useWindowSize";
 import FadeInOverlay from "../../commonAnimations/FadeInOverlay";
+import gsap from "gsap/dist/gsap";
 
-var isInited,
-  hasResized = false;
+var hasResized = false;
 
 const ImageItem = ({
   image,
@@ -25,26 +25,34 @@ const ImageItem = ({
   marginBottom = 0,
   fullSize = true,
   animateFadeIn = false,
-  setIsPictureLoaded = null,
   isgallery = false,
 }) => {
   let prefix = index < 9 ? "0" : "";
   const containerRef = useRef();
   const overlayRef = useRef();
   const themeContext = useContext(ThemeContext);
-  const { width } = useWindowSize();
+  const { width, canAnimate } = useWindowSize();
+
+  useLayoutEffect(() => {
+    gsap.set(containerRef.current, {
+      autoAlpha: 0,
+    });
+  }, []);
 
   useEffect(() => {
-    isInited = false;
-    hasResized = false;
-    if (width < themeContext.breakpoints.xl) {
-      TriggeredFadeIn({ itemRef: containerRef.current });
-      isInited = true;
-      if (setIsPictureLoaded !== null) {
-        setIsPictureLoaded(true);
+    if (canAnimate) {
+      gsap.set(containerRef.current, {
+        autoAlpha: 1,
+      });
+      if (width < themeContext.breakpoints.xl) {
+        TriggeredFadeIn({ itemRef: containerRef.current });
+      } else if (width >= themeContext.breakpoints.xl && animateFadeIn) {
+        FadeInOverlay({
+          itemRef: overlayRef.current,
+        });
       }
     }
-  }, []);
+  }, [canAnimate]);
 
   const resizeHandler = () => {
     hasResized = true;
@@ -57,22 +65,13 @@ const ImageItem = ({
     };
   }, []);
 
-  const pictureAnim = () => {
-    if (width >= themeContext.breakpoints.xl && animateFadeIn) {
-      FadeInOverlay({
-        itemRef: overlayRef.current,
-      });
-      setIsPictureLoaded(true);
-    }
-  };
-
   return (
     <ImageItemContainer
       ref={containerRef}
       titleOnTop={titleOnTop}
       marginBottom={marginBottom}
     >
-      {animateFadeIn && !isInited && !hasResized && (
+      {animateFadeIn && width >= themeContext.breakpoints.xl && !hasResized && (
         <ImageOverlayForAnimation ref={overlayRef} />
       )}
       <ImageWrapper
@@ -81,18 +80,10 @@ const ImageItem = ({
       >
         {isgallery ? (
           <a href={image}>
-            <Image
-              src={image}
-              alt={alt}
-              onLoad={animateFadeIn !== null && pictureAnim}
-            />
+            <Image src={image} alt={alt} />
           </a>
         ) : (
-          <Image
-            src={image}
-            alt={alt}
-            onLoad={animateFadeIn !== null && pictureAnim}
-          />
+          <Image src={image} alt={alt} />
         )}
       </ImageWrapper>
       <ImageTitleContainer>

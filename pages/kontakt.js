@@ -28,31 +28,33 @@ import { contactInfoData as data } from "../public/data/data";
 
 const Contact = ({ contactInfoData = data }) => {
   const themeContext = useContext(ThemeContext);
-  const { width } = useWindowSize();
+  const { width, canAnimate } = useWindowSize();
   let titleRef = useRef();
   let infoWidth = width < themeContext.breakpoints.md ? "170px" : "190px";
 
   useEffect(() => {
-    gsap.set(".content", { autoAlpha: 1 });
-    FadeIn(titleRef, 0, 0.2);
-    FadeInOverlay({ itemRef: ".contact-overlay-animation" });
-    FadeIn(".contact-info-animation", -0.2, 0.4, 1.2);
-    //inputs
-    BorderAnimation({
-      lineRef: ".contact-border-animation",
-      stagger: -0.2,
-      delay: 0.6,
-      duration: 1.2,
-    });
-    //textArea - vertical
-    BorderAnimation({
-      lineRef: ".contact-border-animation-vertical",
-      stagger: -0.2,
-      delay: 0.6,
-      duration: 1.2,
-      isVertical: true,
-    });
-  }, []);
+    if (canAnimate) {
+      gsap.set(".content", { autoAlpha: 1 });
+      FadeIn(titleRef, 0, 0.2);
+      FadeInOverlay({ itemRef: ".contact-overlay-animation" });
+      FadeIn(".contact-info-animation", -0.2, 0.4, 1.2);
+      //inputs
+      BorderAnimation({
+        lineRef: ".contact-border-animation",
+        stagger: -0.2,
+        delay: 0.6,
+        duration: 1.2,
+      });
+      //textArea - vertical
+      BorderAnimation({
+        lineRef: ".contact-border-animation-vertical",
+        stagger: -0.2,
+        delay: 0.6,
+        duration: 1.2,
+        isVertical: true,
+      });
+    }
+  }, [canAnimate]);
 
   const removeOverlay = () => {
     gsap.set(".contact-overlay-animation", { height: 0 });

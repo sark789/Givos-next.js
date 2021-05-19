@@ -5,6 +5,7 @@ export default function useWindowSize() {
   const [windowSize, setWindowSize] = useState({
     width: undefined,
     height: undefined,
+    canAnimate: false,
   });
 
   useEffect(() => {
@@ -14,6 +15,7 @@ export default function useWindowSize() {
         setWindowSize({
           width: window.innerWidth,
           height: window.innerHeight,
+          canAnimate: true,
         });
       }
 

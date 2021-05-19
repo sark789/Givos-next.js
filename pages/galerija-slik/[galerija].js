@@ -97,14 +97,12 @@ const Gallery = ({
   }, []);
 
   useEffect(() => {
-    /* if (isPictureLoaded) { */
     gsap.set(titleWrapperRef, {
       visibility: "visible",
     });
 
     FadeIn([titleRef, subtitleRef], 0, 0);
     BorderAnimation({ lineRef: lineRef, duration: 2, delay: 0.6 });
-    /* } */
   }, []);
 
   function isLargeDisplay() {
@@ -141,7 +139,6 @@ const Gallery = ({
                     index={index}
                     isgallery
                     animateFadeIn
-                    setIsPictureLoaded={setIsPictureLoaded}
                   />
                 </ImageContainer>
               ))}

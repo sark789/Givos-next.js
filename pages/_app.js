@@ -14,6 +14,9 @@ import Menu from "../components/Menu/index";
 import { MenuProvider } from "../utils/MenuContext";
 import { menuExtraInfo } from "../public/data/data";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import isTouchDevice from "../utils/isTouchDevice";
 
 const theme = {
   breakpoints: {
@@ -42,6 +45,20 @@ const theme = {
 };
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (router.pathname !== "/" || isTouchDevice()) {
+      window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+      };
+    } else {
+      window.onbeforeunload = function () {
+        window.scrollTo(0, window.innerHeight);
+      };
+    }
+  }, [router]);
+
   return (
     <ThemeProvider theme={theme}>
       <MenuProvider>

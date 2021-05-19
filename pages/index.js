@@ -55,7 +55,7 @@ const Hero = ({
   const callbackTimeout = useRef();
   containerRefs.current = [];
   const themeContext = useContext(ThemeContext);
-  const { width } = useWindowSize();
+  const { width, canAnimate } = useWindowSize();
   const [prevWidth, setPrevWidth] = useState(width);
 
   function isLargeDisplay() {
@@ -242,6 +242,7 @@ const Hero = ({
   useLayoutEffect(() => {
     inited = false;
     canScroll = false;
+
     FadeIn(".image-animation");
 
     startTimeout.current = setTimeout(() => {
@@ -254,8 +255,19 @@ const Hero = ({
     };
   }, []);
 
-  //useEffect for scroll
+  useEffect(() => {
+    if (canAnimate) {
+      !isLargeDisplay()
+        ? gsap.set(window, {
+            scrollTo: window.innerHeight,
+          })
+        : gsap.set(window, {
+            scrollTo: 0,
+          });
+    }
+  }, [canAnimate]);
 
+  //useEffect for scroll
   useEffect(() => {
     if (!isTouchDevice() && inited) {
       TitleAnimation(
