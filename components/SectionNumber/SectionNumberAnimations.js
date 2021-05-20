@@ -36,6 +36,6 @@ export const SectionNumberTriggerAnimation = ({
       duration: duration,
     }
   )
-    .add(FadeIn(num1Ref, 0, 0, 1.4), 0.4)
-    .add(FadeIn(num2Ref, 0, 0, 1.4), 0.6);
+    .add(FadeIn(num1Ref, 0, startDelay, 1.4), 0.4)
+    .add(FadeIn(num2Ref, 0, startDelay, 1.4), 0.6);
 };

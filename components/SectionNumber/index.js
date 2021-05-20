@@ -27,7 +27,7 @@ const SectionNumber = ({
     if (!dontAnimate) {
       SectionNumberTriggerAnimation({
         lineRef: `.line-to-animate${number}`,
-        startDelay: initialAnimation ? 0.2 : 0,
+        startDelay: initialAnimation ? 1.2 : 0,
         triggerOffset: initialAnimation ? 0 : 150,
         vertical: vertical,
         num1Ref: num1Ref.current,

@@ -90,8 +90,8 @@ const Gallery = ({
       visibility: "visible",
     });
 
-    FadeIn([titleRef, subtitleRef], 0, 0);
-    BorderAnimation({ lineRef: lineRef, duration: 2, delay: 0.6 });
+    FadeIn([titleRef, subtitleRef]);
+    BorderAnimation({ lineRef: lineRef, duration: 2.5, delay: 1.6 });
   }, []);
 
   function isLargeDisplay() {

@@ -34,16 +34,17 @@ const ImageItem = ({
   const { width, canAnimate } = useWindowSize();
 
   useEffect(() => {
+    hasResized = false;
     gsap.set(containerRef.current, {
       visibility: "visible",
     });
 
     if (canAnimate) {
-      if (width < themeContext.breakpoints.xl) {
-        TriggeredFadeIn({ itemRef: containerRef.current });
-      } else if (width >= themeContext.breakpoints.xl && animateFadeIn) {
+      TriggeredFadeIn({ itemRef: containerRef.current });
+      if (width >= themeContext.breakpoints.xl && animateFadeIn) {
         FadeInOverlay({
           itemRef: overlayRef.current,
+          delay: 0.6,
         });
       }
     }

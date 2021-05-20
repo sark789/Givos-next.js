@@ -9,10 +9,11 @@ import {
 import PictureOverlay from "../components/PictureOverlay/index";
 import Title from "../components/Title/index";
 import FadeIn from "../commonAnimations/FadeIn/index";
-import TitleAnimation from "../components/Title/TitleAnimation";
+import TitleAnimation, {
+  UnderlineAnimation,
+} from "../components/Title/TitleAnimation";
 import ScaleIn from "../commonAnimations/ScaleIn";
 import SliderMenu from "../components/SliderMenu";
-import UnderlineAnimation from "../components/Underline/UnderlineAnimations";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -252,18 +253,6 @@ const Hero = ({
       }
     };
   }, []);
-
-  useEffect(() => {
-    if (canAnimate) {
-      !isLargeDisplay()
-        ? gsap.set(window, {
-            scrollTo: window.innerHeight,
-          })
-        : gsap.set(window, {
-            scrollTo: 0,
-          });
-    }
-  }, [canAnimate]);
 
   //useEffect for scroll
   useEffect(() => {

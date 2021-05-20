@@ -22,7 +22,7 @@ const Menu = ({ menuInfoData }) => {
   let infoRef = useRef(null);
   let navbarRef = useRef(null);
   const [isMenuOpened, setIsMenuOpened] = useContext(MenuContext);
-  const { shouldOpenMenu, canAnimate } = isMenuOpened;
+  const { shouldOpenMenu, canAnimate, isRouteFromMenu } = isMenuOpened;
   const { width } = useWindowSize();
 
   const onComplete = () => {
@@ -32,7 +32,11 @@ const Menu = ({ menuInfoData }) => {
   useEffect(() => {
     if (isInited && !canAnimate) {
       !shouldOpenMenu && (document.body.style.overflow = "hidden");
-      setIsMenuOpened({ shouldOpenMenu: shouldOpenMenu, canAnimate: true });
+      setIsMenuOpened({
+        shouldOpenMenu: shouldOpenMenu,
+        canAnimate: true,
+        isRouteFromMenu: isRouteFromMenu,
+      });
       MenuAnimation({
         onComplete: onComplete,
         isMenuOpened: shouldOpenMenu,

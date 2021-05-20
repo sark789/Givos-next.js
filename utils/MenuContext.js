@@ -6,6 +6,7 @@ export const MenuProvider = (props) => {
   const [menuState, setMenuState] = useState({
     shouldOpenMenu: true,
     canAnimate: true,
+    isRouteFromMenu: false,
   });
 
   return (

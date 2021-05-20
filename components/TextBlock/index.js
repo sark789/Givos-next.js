@@ -25,23 +25,15 @@ const TextBlock = ({
   let containerRef = useRef();
   const { shouldAnimate, isPictureLoaded } = animation;
 
-  /* useEffect(() => {
-    isInited = false;
-  }, []); */
-
   useEffect(() => {
     if (shouldAnimate) {
-      //gsap.set(containerRef, { visibility: "hidden" });
-      /* if (isPictureLoaded) { */
-      //gsap.set(containerRef, { autoAlpha: 1 });
-      FadeIn(".about-us-info-animation", 0.2, 0.8, 1.2);
+      FadeIn(".about-us-info-animation", 0.2, 1, 1.2);
       BorderAnimation({
         lineRef: ".about-us-border-animation",
         stagger: 0.2,
         delay: 1,
-        duration: 1.2,
+        duration: 1.6,
       });
-      /* } */
     }
   }, []);
 

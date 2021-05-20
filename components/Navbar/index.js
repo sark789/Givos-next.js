@@ -21,11 +21,15 @@ const Navbar = (
 ) => {
   const lineRef = useRef();
   const [isMenuOpened, setIsMenuOpened] = useContext(MenuContext);
-  const { shouldOpenMenu, canAnimate } = isMenuOpened;
+  const { shouldOpenMenu, canAnimate, isRouteFromMenu } = isMenuOpened;
 
   const onClickHandler = () => {
     if (canAnimate) {
-      setIsMenuOpened({ shouldOpenMenu: !shouldOpenMenu, canAnimate: false });
+      setIsMenuOpened({
+        shouldOpenMenu: !shouldOpenMenu,
+        canAnimate: false,
+        isRouteFromMenu: isRouteFromMenu,
+      });
     }
   };
 

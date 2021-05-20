@@ -48,3 +48,12 @@ export const LinkContainer = styled.div`
   transform: translateX(100%) translateY(50%);
   overflow: hidden;
 `;
+
+export const Underline = styled.div`
+  position: absolute;
+  bottom: -10%;
+  left: 0;
+  height: 1px;
+  background-color: white;
+  width: 100%;
+`;

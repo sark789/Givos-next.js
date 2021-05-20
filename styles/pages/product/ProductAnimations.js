@@ -9,8 +9,6 @@ export function ParallaxPictureAnimation({ movementSpeed = 2000 }) {
       .offsetHeight -
     document.getElementsByClassName("description-pin")[0].offsetHeight;
 
-  console.log(position);
-
   gsap.fromTo(
     ".gallery-parallax-animation",
     { y: 0 },

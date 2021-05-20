@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { MenuContext } from "../../utils/MenuContext";
+import React from "react";
 import LinkItem from "../LinkItem";
 import {
   LinksWrapper,
@@ -13,15 +12,6 @@ const LinksContainer = ({
   isformenu = false,
   linkAnimationClass = "",
 }) => {
-  const [isMenuOpened, setIsMenuOpened] = useContext(MenuContext);
-  const { shouldOpenMenu, canAnimate } = isMenuOpened;
-
-  const onClickHandler = () => {
-    if (canAnimate && isformenu) {
-      setIsMenuOpened({ shouldOpenMenu: !shouldOpenMenu, canAnimate: false });
-    }
-  };
-
   return (
     <LinksWrapper>
       {linksData.map((data, index) => (
@@ -36,7 +26,7 @@ const LinksContainer = ({
             </SectionHeader>
           </div>
           {linksData[index].links.map((link, linkIndex) => (
-            <span onClick={onClickHandler} key={link.title}>
+            <span key={link.title}>
               <LinkItem
                 text={link.title}
                 color={color}

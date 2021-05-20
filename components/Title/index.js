@@ -5,10 +5,9 @@ import {
   TitleText,
   NormalText,
   LinkContainer,
+  Underline,
 } from "./TitleElements";
-import Underline from "../Underline/index";
-import TitleAnimation from "./TitleAnimation";
-import UnderlineAnimation from "../Underline/UnderlineAnimations";
+import TitleAnimation, { UnderlineAnimation } from "./TitleAnimation";
 import LinkTo from "../Link/index";
 import gsap from "gsap";
 
@@ -17,6 +16,10 @@ var underlineWidth = "100%";
 const Title = ({ titles, index, isForProductPage = false, linkRef }) => {
   var tag = !isForProductPage ? "h2" : "h1";
   const containerRef = useRef();
+  const item1Ref = useRef();
+  const item2Ref = useRef();
+  const item3Ref = useRef();
+  const underlineRef = useRef();
 
   function getFirstWord(str) {
     let spaceIndex = str.indexOf(" ");
@@ -34,28 +37,39 @@ const Title = ({ titles, index, isForProductPage = false, linkRef }) => {
     });
     underlineWidth = !isForProductPage ? "100%" : "40%";
 
-    TitleAnimation(".animation1", ".animation2", ".animation3", 1, 1.25);
+    TitleAnimation(
+      item1Ref.current,
+      item2Ref.current,
+      item3Ref.current,
+      1.6,
+      1
+    );
     UnderlineAnimation({
-      underlineRef: ".underline-animation",
+      underlineRef: underlineRef.current,
       underlineWidth: underlineWidth,
+      startDelay: 1.6,
+      duration: 1,
     });
   }, []);
 
   return (
     <Content top={isForProductPage} ref={containerRef}>
       <div style={{ overflow: "hidden" }}>
-        <TitleContainer className={`animation1 animation1-${index}`}>
+        <TitleContainer ref={item1Ref} className={` animation1-${index}`}>
           <TitleText as={tag}>{getFirstWord(titles[index])}</TitleText>
         </TitleContainer>
       </div>
       <div style={{ overflow: "hidden" }}>
-        <TitleContainer className={`animation2 animation2-${index}`}>
+        <TitleContainer ref={item2Ref} className={` animation2-${index}`}>
           <TitleText as={tag}>{getSecondWord(titles[index])}</TitleText>
         </TitleContainer>
       </div>
-      <Underline classname={`underline-animation-${index}`} />
+      <Underline
+        ref={underlineRef}
+        className={`underline-animation-${index}`}
+      />
       <LinkContainer right={isForProductPage}>
-        <div className={`animation3 animation3-${index}`}>
+        <div ref={item3Ref} className={`animation3-${index}`}>
           {!isForProductPage ? (
             <LinkTo linkRef={`ograje/${linkRef[index]}`} />
           ) : (

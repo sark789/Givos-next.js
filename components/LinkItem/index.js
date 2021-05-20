@@ -11,6 +11,7 @@ import { BsArrowRight } from "react-icons/bs";
 import { ThemeContext } from "styled-components";
 import Link from "next/link";
 import useWindowSize from "../../utils/useWindowSize";
+import { MenuContext } from "../../utils/MenuContext";
 
 const LinkItem = ({
   text,
@@ -27,6 +28,9 @@ const LinkItem = ({
   const arrowRef = useRef();
   const themeContext = useContext(ThemeContext);
   const { width: innerWidth } = useWindowSize();
+
+  const [isMenuOpened, setIsMenuOpened] = useContext(MenuContext);
+  const { shouldOpenMenu, canAnimate, isRouteFromMenu } = isMenuOpened;
 
   const handleHover = (e) => {
     onLinkHover({
@@ -46,14 +50,23 @@ const LinkItem = ({
 
   const handleFromMenuClick = (e) => {
     linkRef === "" && e.preventDefault();
-    //console.log(isformenu);
-    /* if (isformenu) {
-      e.preventDefault();
-    } */
+
+    if (canAnimate && isformenu) {
+      setIsMenuOpened({
+        shouldOpenMenu: !shouldOpenMenu,
+        canAnimate: false,
+        isRouteFromMenu: true,
+      });
+    } else {
+      setIsMenuOpened({
+        ...isMenuOpened,
+        isRouteFromMenu: false,
+      });
+    }
   };
 
   return (
-    <Link href={linkRef}>
+    <Link href={linkRef} scroll={false}>
       <StyledLink onClick={handleFromMenuClick}>
         <LinkItemContainer
           color={color}

@@ -10,25 +10,31 @@ export const TriggeredFadeIn = ({
   duration = 1,
   delay = 0,
 }) => {
-  var tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: itemRef,
-      start: `top+=${triggerOffset} bottom`,
+  ScrollTrigger.saveStyles(itemRef);
+
+  ScrollTrigger.matchMedia({
+    "(max-width: 1199px)": function () {
+      var tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: itemRef,
+          start: `top+=${triggerOffset} bottom`,
+        },
+      });
+
+      tl.fromTo(
+        itemRef,
+        {
+          y: distance,
+          autoAlpha: 0,
+        },
+        {
+          y: 0,
+          autoAlpha: 1,
+          delay: delay,
+          ease: "power2.out",
+          duration: duration,
+        }
+      );
     },
   });
-
-  tl.fromTo(
-    itemRef,
-    {
-      y: distance,
-      autoAlpha: 0,
-    },
-    {
-      y: 0,
-      autoAlpha: 1,
-      delay: delay,
-      ease: "power2.out",
-      duration: duration,
-    }
-  );
 };

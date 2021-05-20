@@ -4,7 +4,7 @@ export const InitialNavbarAnimation = ({
   lineRef,
   linkRef,
   isForHeroPage,
-  delay = 1.4,
+  delay = 1.7,
 }) => {
   if (!isForHeroPage) {
     gsap.fromTo(
@@ -12,7 +12,7 @@ export const InitialNavbarAnimation = ({
       {
         width: 0,
       },
-      { width: "100%", delay: 1, ease: "power2.out", duration: 1.2 }
+      { width: "100%", delay: 1, ease: "power2.out", duration: 1.2, delay: 1.3 }
     );
   }
 

@@ -35,21 +35,21 @@ const Contact = ({ contactInfoData = data }) => {
   useEffect(() => {
     if (canAnimate) {
       gsap.set(".content", { autoAlpha: 1 });
-      FadeIn(titleRef, 0, 0.2);
-      FadeInOverlay({ itemRef: ".contact-overlay-animation" });
-      FadeIn(".contact-info-animation", -0.2, 0.4, 1.2);
+      FadeIn(titleRef, 0, 0.6);
+      FadeInOverlay({ itemRef: ".contact-overlay-animation", delay: 0.5 });
+      FadeIn(".contact-info-animation", -0.2, 0.9, 1.2);
       //inputs
       BorderAnimation({
         lineRef: ".contact-border-animation",
         stagger: -0.2,
-        delay: 0.6,
+        delay: 1,
         duration: 1.2,
       });
       //textArea - vertical
       BorderAnimation({
         lineRef: ".contact-border-animation-vertical",
         stagger: -0.2,
-        delay: 0.6,
+        delay: 1,
         duration: 1.2,
         isVertical: true,
       });
