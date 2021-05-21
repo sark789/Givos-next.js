@@ -19,20 +19,29 @@ const SectionNumber = ({
   const num1Ref = useRef();
   const num2Ref = useRef();
   const containerRef = useRef();
+  const timeout = useRef();
 
   useEffect(() => {
     gsap.set(containerRef.current, {
       visibility: "visible",
     });
     if (!dontAnimate) {
-      SectionNumberTriggerAnimation({
-        lineRef: `.line-to-animate${number}`,
-        startDelay: initialAnimation ? 1.2 : 0,
-        triggerOffset: initialAnimation ? 0 : 150,
-        vertical: vertical,
-        num1Ref: num1Ref.current,
-        num2Ref: num2Ref.current,
-      });
+      timeout.current = setTimeout(() => {
+        SectionNumberTriggerAnimation({
+          lineRef: `.line-to-animate${number}`,
+          startDelay: initialAnimation ? 0 : 0,
+          triggerOffset: initialAnimation ? 0 : 150,
+          vertical: vertical,
+          num1Ref: num1Ref.current,
+          num2Ref: num2Ref.current,
+        });
+      }, 1200);
+
+      return () => {
+        if (timeout.current) {
+          clearTimeout(timeout.current);
+        }
+      };
     }
   }, []);
 

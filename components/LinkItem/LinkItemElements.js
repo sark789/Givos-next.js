@@ -28,6 +28,7 @@ export const LinkItemContainer = styled.div`
 export const StyledLink = styled.a`
   text-decoration: none;
   width: 100%;
+  cursor: pointer;
 `;
 
 export const LinkText = styled.div`

@@ -91,7 +91,7 @@ const Gallery = ({
     });
 
     FadeIn([titleRef, subtitleRef]);
-    BorderAnimation({ lineRef: lineRef, duration: 2.5, delay: 1.6 });
+    BorderAnimation({ lineRef: lineRef, duration: 1.4, delay: 1.6 });
   }, []);
 
   function isLargeDisplay() {

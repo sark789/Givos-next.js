@@ -32,40 +32,52 @@ const ImageItem = ({
   const overlayRef = useRef();
   const themeContext = useContext(ThemeContext);
   const { width, canAnimate } = useWindowSize();
+  const timeout = useRef();
 
   useEffect(() => {
     hasResized = false;
-    gsap.set(containerRef.current, {
-      visibility: "visible",
-    });
+    window.addEventListener("resize", resizeHandler);
 
     if (canAnimate) {
-      TriggeredFadeIn({ itemRef: containerRef.current });
-      if (width >= themeContext.breakpoints.xl && animateFadeIn) {
-        FadeInOverlay({
-          itemRef: overlayRef.current,
-          delay: 0.6,
+      if (width >= themeContext.breakpoints.xl) {
+        gsap.set(containerRef.current, {
+          visibility: "visible",
         });
+        if (animateFadeIn) {
+          FadeInOverlay({
+            itemRef: overlayRef.current,
+            delay: 0.6,
+          });
+        }
+      } else {
+        timeout.current = setTimeout(() => {
+          TriggeredFadeIn({ itemRef: containerRef.current });
+        }, 1200);
       }
+      return () => {
+        if (timeout.current) {
+          clearTimeout(timeout.current);
+        }
+      };
     }
+
+    return () => {};
   }, [canAnimate]);
 
   const resizeHandler = () => {
     hasResized = true;
+    gsap.set(containerRef.current, {
+      visibility: "visible",
+    });
+    window.removeEventListener("resize", resizeHandler);
   };
-
-  useEffect(() => {
-    window.addEventListener("resize", resizeHandler);
-    return () => {
-      window.addEventListener("resize", resizeHandler);
-    };
-  }, []);
 
   return (
     <ImageItemContainer
       ref={containerRef}
       titleOnTop={titleOnTop}
       marginBottom={marginBottom}
+      visibility={hasResized ? "visible" : "hidden"}
     >
       {animateFadeIn && width >= themeContext.breakpoints.xl && !hasResized && (
         <ImageOverlayForAnimation ref={overlayRef} />

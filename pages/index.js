@@ -317,6 +317,10 @@ const Hero = ({
         if (callbackTimeout.current) {
           clearTimeout(callbackTimeout.current);
         }
+
+        if (timeout.current) {
+          clearTimeout(timeout.current);
+        }
       };
     } else {
       setReconstructedImageArray([...mobileStartArray.slice(1), 0]);
@@ -333,11 +337,6 @@ const Hero = ({
           prev === images.length - 1 ? 0 : prev + 1
         );
       }, 8000);
-      return () => {
-        if (timeout.current) {
-          clearTimeout(timeout.current);
-        }
-      };
     }
   }, [containerIndex]);
 

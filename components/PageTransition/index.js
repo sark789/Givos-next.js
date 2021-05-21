@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import {
   PageTransitionEnter,
+  PageTransitionExit,
   PageTransitionExiting,
 } from "./PageTransitionAnimations";
 import { PageTransitionOverlay } from "./PageTransitionElements";
@@ -31,6 +32,7 @@ const PageTransition = ({ router, children }) => {
               isRouteFromMenu: isRouteFromMenu,
             })
           }
+          onExit={() => PageTransitionExit()}
           in={true}
           appear={true}
         >

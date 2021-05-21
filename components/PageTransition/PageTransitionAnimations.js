@@ -1,6 +1,7 @@
 import gsap from "gsap";
 import isTouchDevice from "../../utils/isTouchDevice";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -61,4 +62,12 @@ export const PageTransitionExiting = ({ node, isRouteFromMenu }) => {
   if (!isRouteFromMenu) {
     gsap.set(node, { zIndex: 100 });
   }
+};
+
+export const PageTransitionExit = () => {
+  /*  ScrollTrigger.getAll().forEach((i) => i.kill()); */
+  /* var heroAnim = gsap.getById("hero-scroll");
+  if (heroAnim) {
+    heroAnim.pause();
+  } */
 };

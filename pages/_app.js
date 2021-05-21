@@ -20,6 +20,7 @@ import isTouchDevice from "../utils/isTouchDevice";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import PageTransition from "../components/PageTransition/index";
+import gsap from "gsap";
 
 const scrollTrigger = ScrollTrigger;
 const scrollTo = ScrollToPlugin;

@@ -8,6 +8,7 @@ import {
   MenuContainer,
 } from "./MenuElements";
 import { footerAndMenuData } from "../../public/data/data";
+import gsap from "gsap";
 import Navbar from "../Navbar";
 import { ThemeContext } from "styled-components";
 import { MenuAnimation } from "./MenuAnimations";
@@ -26,17 +27,27 @@ const Menu = ({ menuInfoData }) => {
   const { width } = useWindowSize();
 
   const onComplete = () => {
-    shouldOpenMenu && (document.body.style.overflow = "unset");
+    gsap.set(document.body, {
+      overflow: "unset",
+      touchAction: "unset",
+      pointerEvents: "unset",
+    });
   };
 
   useEffect(() => {
     if (isInited && !canAnimate) {
-      !shouldOpenMenu && (document.body.style.overflow = "hidden");
+      gsap.set(document.body, {
+        overflow: "hidden",
+        touchAction: "none",
+        pointerEvents: "none",
+      });
+
       setIsMenuOpened({
         shouldOpenMenu: shouldOpenMenu,
-        canAnimate: true,
-        isRouteFromMenu: isRouteFromMenu,
+        canAnimate: !canAnimate,
+        isRouteFromMenu: true,
       });
+
       MenuAnimation({
         onComplete: onComplete,
         isMenuOpened: shouldOpenMenu,
