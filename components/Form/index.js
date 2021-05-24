@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { init, sendForm } from "emailjs-com";
+
 import { useForm } from "react-hook-form";
 import {
   BottomBorder,
@@ -20,8 +20,7 @@ import {
 } from "./FormElements";
 import FormPlaceholderAnimation from "./FormAnimations";
 import { ThemeContext } from "styled-components";
-
-init(process.env.NEXT_PUBLIC_FORM_INIT);
+import axios from "axios";
 
 const Form = ({ formData }) => {
   const themeContext = useContext(ThemeContext);
@@ -33,25 +32,36 @@ const Form = ({ formData }) => {
   } = useForm();
 
   const message = "Sporočilo je bilo poslano!";
-  const ShowMessage = (message) => {
-    setShowMessage(message);
-    setTimeout(() => setShowMessage(""), 3000);
+  const errorMessage =
+    "Sporočilo ni bilo poslano! Prosim pošljite povpraševanje na: info@givos.si";
+  const ShowMessage = ({ msg, color }) => {
+    setShowMessage({ msg: msg, color: color });
+    setTimeout(() => setShowMessage({ msg: "", color: "green" }), 6000);
   };
-  const [showMessage, setShowMessage] = useState("");
+  const [showMessage, setShowMessage] = useState({ msg: "", color: "green" });
 
-  const onSubmit = (data) => {
-    ShowMessage(message);
-
-    sendForm("gmail", process.env.NEXT_PUBLIC_FORM_TEMPLATE, "form").then(
-      (result) => {
-        console.log(result.text);
+  async function onSubmit(data) {
+    let config = {
+      method: "post",
+      url: `${process.env.NEXT_PUBLIC_API_URL}/api/contact`,
+      headers: {
+        "Content-Type": "application/json",
       },
-      (error) => {
-        console.log(error.text);
+      data: data,
+    };
+
+    try {
+      const response = await axios(config);
+
+      if (response.status === 200) {
+        ShowMessage({ msg: message, color: "green" });
+        reset({});
       }
-    );
-    reset({});
-  };
+    } catch (err) {
+      console.log(err);
+      ShowMessage({ msg: errorMessage, color: "red" });
+    }
+  }
 
   const onFocusHandler = (e) => {
     if (e.target.value === "") {
@@ -143,8 +153,11 @@ const Form = ({ formData }) => {
           Pošlji
         </Button>
       </ButtonWrapper>
-      <p style={{ paddingTop: "1rem", height: "40px", color: "green" }}>
-        {showMessage}
+      <p
+        style={{ paddingTop: "1rem", height: "40px", color: showMessage.color }}
+      >
+        {console.log(showMessage)}
+        {showMessage.msg}
       </p>
     </FormContainer>
   );
