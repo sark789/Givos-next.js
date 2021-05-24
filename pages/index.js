@@ -28,6 +28,7 @@ import {
   heroTitles,
   productLinks as links,
 } from "../public/data/data";
+import { MenuContext } from "../utils/MenuContext";
 
 gsap.registerPlugin(ScrollToPlugin);
 gsap.registerPlugin(ScrollTrigger);
@@ -52,6 +53,9 @@ const Hero = ({
   const themeContext = useContext(ThemeContext);
   const { width, canAnimate } = useWindowSize();
   const [prevWidth, setPrevWidth] = useState(width);
+  const [forceScrollStop, setForceScrollStop] = useState(false);
+  const [menuState] = useContext(MenuContext);
+  let titleRef = useRef();
 
   function isLargeDisplay() {
     if (width) {
@@ -120,7 +124,11 @@ const Hero = ({
         duration: 0,
         onComplete: canScrollCallback,
       });
-    }, 250);
+
+      gsap.set(titleRef, {
+        pointerEvents: "unset",
+      });
+    }, 0);
   }
 
   function startTimer() {
@@ -139,7 +147,7 @@ const Hero = ({
 
   const onWheelHandler = (e) => {
     e.preventDefault();
-    if (canScroll) {
+    if (canScroll && !forceScrollStop) {
       canScroll = false;
       if (e.deltaY > 0) {
         if (timeout.current) {
@@ -256,7 +264,11 @@ const Hero = ({
 
   //useEffect for scroll
   useEffect(() => {
-    if (!isTouchDevice() && inited) {
+    if (!isTouchDevice() && inited && !forceScrollStop) {
+      gsap.set(titleRef, {
+        pointerEvents: "none",
+      });
+
       TitleAnimation(
         `.animation1-${containerIndex}`,
         `.animation2-${containerIndex}`,
@@ -302,6 +314,7 @@ const Hero = ({
       });
       document.addEventListener("visibilitychange", onActiveTabHandler);
       window.addEventListener("resize", onResizeHandler);
+
       return () => {
         window.removeEventListener("wheel", onWheelHandler);
         window.removeEventListener("touchmove", onTouchHandler);
@@ -329,7 +342,7 @@ const Hero = ({
 
   //autoscroll
   useEffect(() => {
-    if (!isTouchDevice()) {
+    if (!isTouchDevice() && menuState.shouldOpenMenu) {
       timeout.current = setTimeout(() => {
         canScroll = false;
         scrollDirection = "bottom";
@@ -337,8 +350,12 @@ const Hero = ({
           prev === images.length - 1 ? 0 : prev + 1
         );
       }, 8000);
+    } else if (!menuState.shouldOpenMenu) {
+      if (timeout.current) {
+        clearTimeout(timeout.current);
+      }
     }
-  }, [containerIndex]);
+  }, [containerIndex, menuState.shouldOpenMenu]);
 
   return (
     <div style={{ position: "absolute", backgroundColor: "white" }}>
@@ -362,11 +379,14 @@ const Hero = ({
               alt={alts && alts[imageIndex]}
               className={`image-animation scale-in-${imageIndex}`}
             />
-            <Title
-              titles={titles}
-              index={imageIndex}
-              linkRef={productLinks}
-            ></Title>
+            <div ref={(el) => (titleRef = el)}>
+              <Title
+                titles={titles}
+                index={imageIndex}
+                linkRef={productLinks}
+                forceScrollStop={setForceScrollStop}
+              ></Title>
+            </div>
           </ImageContainer>
         ))}
       </HeroContainer>

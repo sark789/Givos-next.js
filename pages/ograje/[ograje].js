@@ -109,7 +109,6 @@ const Product = ({ index = 0 }) => {
       visibility: "visible",
     });
     onResizeHandler();
-
     let debouncedFunction = _.debounce(onResizeHandler, 700);
     window.addEventListener("resize", debouncedFunction);
     return () => {

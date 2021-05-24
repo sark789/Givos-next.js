@@ -9,6 +9,7 @@ import {
 } from "./NavbarElements";
 import LinkItem from "../LinkItem";
 import gsap from "gsap";
+import logo from "../../public/images/givos_logo.png";
 
 const Navbar = (
   {
@@ -21,13 +22,14 @@ const Navbar = (
 ) => {
   const lineRef = useRef();
   const [isMenuOpened, setIsMenuOpened] = useContext(MenuContext);
-  const { shouldOpenMenu, canAnimate, isRouteFromMenu } = isMenuOpened;
+  const { shouldOpenMenu, isRouteFromMenu } = isMenuOpened;
 
-  const onClickHandler = () => {
-    if (canAnimate) {
+  const onClickHandler = (e) => {
+    var isToHome = e.currentTarget.classList.contains("menu-home-link");
+    if (!isToHome || (!shouldOpenMenu && isToHome)) {
       setIsMenuOpened({
         shouldOpenMenu: !shouldOpenMenu,
-        canAnimate: false,
+        canAnimate: true,
         isRouteFromMenu: isRouteFromMenu,
       });
     }
@@ -56,13 +58,14 @@ const Navbar = (
       <WideContainer>
         <InnerContainer>
           <NavbarLinkContainer className="navbar-link-animation">
-            <span>
+            <span onClick={(e) => onClickHandler(e)} className="menu-home-link">
               <LinkItem
-                text="Givos"
+                text={logo}
                 color={color}
                 hideArrow={true}
                 width={"auto"}
                 linkRef="/"
+                isLogo
               />
             </span>
           </NavbarLinkContainer>

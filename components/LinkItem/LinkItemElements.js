@@ -68,3 +68,17 @@ export const Arrow = styled.div`
       }
     `}
 `;
+
+export const LogoWrapper = styled.div`
+  width: 70px;
+  height: 100%;
+
+  ${breakpoint("md")`
+  width: 90px;
+        `}
+`;
+
+export const LogoImg = styled.img`
+  width: 100%;
+  height: 100%;
+`;

@@ -13,6 +13,7 @@ export const LinkText = styled.div`
   color: white;
   margin-left: 10px;
   margin-right: 5px;
+  pointer-events: none;
 
   ${breakpoint("md")`
         font-size: 1.4rem;

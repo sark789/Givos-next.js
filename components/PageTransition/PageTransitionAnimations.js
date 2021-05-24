@@ -10,6 +10,11 @@ export const PageTransitionEnter = ({
   containerRef,
   isRouteFromMenu,
 }) => {
+  var easePosition =
+    location !== "/" || isTouchDevice() ? 0 : window.innerHeight;
+  var easeOutPosition =
+    location === "/" && !isTouchDevice() ? 0 : -window.innerHeight;
+
   if (!isRouteFromMenu) {
     gsap
       .timeline()
@@ -30,20 +35,22 @@ export const PageTransitionEnter = ({
         }
       )
       .set(window, {
-        scrollTo: location !== "/" || isTouchDevice() ? 0 : window.innerHeight,
+        scrollTo: easePosition,
       })
       .set(containerRef, {
-        top: location !== "/" || isTouchDevice() ? 0 : window.innerHeight,
+        top: easePosition,
       })
       .fromTo(
         containerRef,
-        { top: location !== "/" || isTouchDevice() ? 0 : window.innerHeight },
+        {
+          top: easePosition,
+        },
         {
           ease: "expo.inOut",
           duration: 1,
           top: isTouchDevice()
-            ? -window.innerHeight - window.innerHeight * 0.2
-            : -window.innerHeight,
+            ? easeOutPosition - window.innerHeight * 0.2
+            : easeOutPosition,
         }
       )
       .set(containerRef, { display: "none" })
@@ -53,7 +60,7 @@ export const PageTransitionEnter = ({
       });
   } else {
     gsap.set(window, {
-      scrollTo: location !== "/" || isTouchDevice() ? 0 : window.innerHeight,
+      scrollTo: easePosition,
     });
   }
 };
@@ -64,10 +71,4 @@ export const PageTransitionExiting = ({ node, isRouteFromMenu }) => {
   }
 };
 
-export const PageTransitionExit = () => {
-  /*  ScrollTrigger.getAll().forEach((i) => i.kill()); */
-  /* var heroAnim = gsap.getById("hero-scroll");
-  if (heroAnim) {
-    heroAnim.pause();
-  } */
-};
+export const PageTransitionExit = ({ location }) => {};

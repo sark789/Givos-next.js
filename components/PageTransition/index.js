@@ -32,7 +32,7 @@ const PageTransition = ({ router, children }) => {
               isRouteFromMenu: isRouteFromMenu,
             })
           }
-          onExit={() => PageTransitionExit()}
+          onExit={() => PageTransitionExit({ location: router.pathname })}
           in={true}
           appear={true}
         >

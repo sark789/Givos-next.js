@@ -22,8 +22,8 @@ const Menu = ({ menuInfoData }) => {
   let containerRef = useRef(null);
   let infoRef = useRef(null);
   let navbarRef = useRef(null);
-  const [isMenuOpened, setIsMenuOpened] = useContext(MenuContext);
-  const { shouldOpenMenu, canAnimate, isRouteFromMenu } = isMenuOpened;
+  const [isMenuOpened] = useContext(MenuContext);
+  const { shouldOpenMenu } = isMenuOpened;
   const { width } = useWindowSize();
 
   const onComplete = () => {
@@ -35,17 +35,11 @@ const Menu = ({ menuInfoData }) => {
   };
 
   useEffect(() => {
-    if (isInited && !canAnimate) {
+    if (isInited) {
       gsap.set(document.body, {
         overflow: "hidden",
         touchAction: "none",
         pointerEvents: "none",
-      });
-
-      setIsMenuOpened({
-        shouldOpenMenu: shouldOpenMenu,
-        canAnimate: !canAnimate,
-        isRouteFromMenu: true,
       });
 
       MenuAnimation({

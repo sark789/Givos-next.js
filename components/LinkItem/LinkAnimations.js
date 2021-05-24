@@ -6,17 +6,18 @@ export const onLinkHover = ({ arrowRef = null, lineRef, enter }) => {
     paused: true,
   });
   tl.clear();
-
-  tl.fromTo(
-    lineRef,
-    {
-      width: 0,
-    },
-    {
-      width: "100%",
-    },
-    "<="
-  );
+  if (lineRef) {
+    tl.fromTo(
+      lineRef,
+      {
+        width: 0,
+      },
+      {
+        width: "100%",
+      },
+      "<="
+    );
+  }
   if (arrowRef !== null) {
     tl.add(
       gsap.fromTo(

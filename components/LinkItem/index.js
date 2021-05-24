@@ -5,6 +5,8 @@ import {
   Arrow,
   LinkItemContainer,
   LinkText,
+  LogoImg,
+  LogoWrapper,
   StyledLink,
 } from "./LinkItemElements";
 import { BsArrowRight } from "react-icons/bs";
@@ -23,6 +25,7 @@ const LinkItem = ({
   linkAnimationClass = "",
   hideArrow = false,
   linkRef = "",
+  isLogo = false,
 }) => {
   const middleLineRef = useRef();
   const arrowRef = useRef();
@@ -79,21 +82,27 @@ const LinkItem = ({
             isformenu={isformenu}
             className={linkAnimationClass}
           >
-            <span style={{ position: "relative" }}>
-              <TopBorder
-                ref={middleLineRef}
-                noTranslate
-                color={color}
-                isformenu={isformenu}
-                style={{
-                  top: "50%",
-                  width: 0,
-                  height:
-                    innerWidth < themeContext.breakpoints.md ? "1px" : "2px",
-                }}
-              />
-              {text}
-            </span>
+            {!isLogo ? (
+              <span style={{ position: "relative" }}>
+                <TopBorder
+                  ref={middleLineRef}
+                  noTranslate
+                  color={color}
+                  isformenu={isformenu}
+                  style={{
+                    top: "50%",
+                    width: 0,
+                    height:
+                      innerWidth < themeContext.breakpoints.md ? "1px" : "2px",
+                  }}
+                />
+                {text}
+              </span>
+            ) : (
+              <LogoWrapper>
+                <LogoImg src={text} alt="logo" />
+              </LogoWrapper>
+            )}
           </LinkText>
           {topBorder && (
             <TopBorder noTranslate color={color} isformenu={isformenu} />

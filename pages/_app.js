@@ -55,16 +55,13 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    if (router.pathname !== "/" || isTouchDevice()) {
-      window.onbeforeunload = function () {
-        window.scrollTo(0, 0);
-      };
-    } else {
-      window.onbeforeunload = function () {
-        window.scrollTo(0, window.innerHeight);
-      };
-    }
-  }, [router]);
+    //keeps the scroller on the same position when back button is clicked!
+    router.beforePopState((state) => {
+      window.history.scrollRestoration = "manual";
+      state.options.scroll = false;
+      return true;
+    });
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>

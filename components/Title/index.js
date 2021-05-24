@@ -13,7 +13,13 @@ import gsap from "gsap";
 
 var underlineWidth = "100%";
 
-const Title = ({ titles, index, isForProductPage = false, linkRef }) => {
+const Title = ({
+  titles,
+  index,
+  isForProductPage = false,
+  linkRef,
+  forceScrollStop = null,
+}) => {
   var tag = !isForProductPage ? "h2" : "h1";
   const containerRef = useRef();
   const item1Ref = useRef();
@@ -71,7 +77,10 @@ const Title = ({ titles, index, isForProductPage = false, linkRef }) => {
       <LinkContainer right={isForProductPage}>
         <div ref={item3Ref} className={`animation3-${index}`}>
           {!isForProductPage ? (
-            <LinkTo linkRef={`ograje/${linkRef[index]}`} />
+            <LinkTo
+              linkRef={`ograje/${linkRef[index]}`}
+              forceScrollStop={forceScrollStop}
+            />
           ) : (
             <NormalText> Kle neki neki</NormalText>
           )}
