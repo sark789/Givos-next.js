@@ -12,11 +12,12 @@ import {
   productImages,
   productImageTitles,
   galleryLinks,
+  productLinks,
+  seoData,
 } from "../../public/data/data";
 import GallerySection from "../../styles/pages/product/gallerySection";
 import ContactSection from "../../styles/pages/product/contactSection";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { WideContainer } from "../../styles/commonStyles";
 import { DescriptionAndGalleryWrapper } from "../../styles/pages/product/ProductElements";
 import Footer from "../../components/Footer";
@@ -30,7 +31,7 @@ import useWindowSize from "../../utils/useWindowSize";
 import _ from "lodash";
 import Navbar from "../../components/Navbar";
 import isTouchDevice from "../../utils/isTouchDevice";
-import { productLinks } from "../../public/data/data";
+import Head from "next/head";
 
 export async function getStaticPaths() {
   const paths = productLinks.map((link) => ({
@@ -124,6 +125,10 @@ const Product = ({ index = 0 }) => {
         position: "absolute",
       }}
     >
+      <Head>
+        <title>{seoData.product.title[index]}</title>
+        <meta name="description" content={seoData.product.description[index]} />
+      </Head>
       <Navbar />
       <LandingSection
         image={heroImages[index]}

@@ -27,8 +27,10 @@ import {
   heroImageAlts,
   heroTitles,
   productLinks as links,
+  seoData,
 } from "../public/data/data";
 import { MenuContext } from "../utils/MenuContext";
+import Head from "next/head";
 
 gsap.registerPlugin(ScrollToPlugin);
 gsap.registerPlugin(ScrollTrigger);
@@ -359,6 +361,10 @@ const Hero = ({
 
   return (
     <div style={{ position: "absolute", backgroundColor: "white" }}>
+      <Head>
+        <title>{seoData.hero.title}</title>
+        <meta name="description" content={seoData.hero.description} />
+      </Head>
       <Navbar
         isForHeroPage
         background={isLargeDisplay() ? "white" : "transparent"}

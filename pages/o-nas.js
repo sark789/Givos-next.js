@@ -26,7 +26,9 @@ import {
   aboutUsMainDescriptionData,
   aboutUsInfoData,
   aboutUsPictureInfo,
+  seoData,
 } from "../public/data/data";
+import Head from "next/head";
 
 const AboutUs = ({
   mainDescription = aboutUsMainDescriptionData,
@@ -55,6 +57,10 @@ const AboutUs = ({
 
   return (
     <div style={{ position: "absolute", backgroundColor: "white" }}>
+      <Head>
+        <title>{seoData.aboutUs.title}</title>
+        <meta name="description" content={seoData.aboutUs.description} />
+      </Head>
       <Navbar />
       <WideContainer>
         <InnerContainer className="about-us-container">

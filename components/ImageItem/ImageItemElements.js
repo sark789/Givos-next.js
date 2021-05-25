@@ -9,6 +9,7 @@ export const ImageItemContainer = styled.div`
     props.titleOnTop ? "column-reverse" : "column"};
   visibility: hidden;
   visibility: ${(props) => props.visibility};
+  width: 100%;
 
   ${breakpoint("xl")`
         margin-bottom: ${(props) => props.marginBottom};

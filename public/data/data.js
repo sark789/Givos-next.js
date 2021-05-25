@@ -476,3 +476,50 @@ export const galleryLinks = [
   "galerija-alu-vrata",
   "galerija-pvc-ograje",
 ];
+
+/*SEO*/
+
+export const seoData = {
+  hero: {
+    title: "Givos",
+    description:
+      "Ograje po vaših željah - kvalitetno in ugodno! Prodajamo in montiramo različne vrste ograj v PVC ali ALU izvedbi. Po želji jih opremimo z motornim pogonom.",
+  },
+  gallery: {
+    title: [
+      "Givos | Galerija Pvc Vrata",
+      "Givos | Galerija Alu Ograje",
+      "Givos | Galerija Alu Vrata",
+      "Givos | Galerija Pvc Ograje",
+    ],
+    description: [
+      "Galerija slik PVC Vrat",
+      "Galerija slik Alu Ograj",
+      "Galerija slik Alu Vrat",
+      "Galerija slik PVC Ograj",
+    ],
+  },
+  product: {
+    title: [
+      "Givos | Pvc Vrata",
+      "Givos | Alu Ograje",
+      "Givos | Alu Vrata",
+      "Givos | Pvc Ograje",
+    ],
+    description: [
+      "PVC vrata - kvalitetna, hitra in prilagodljiva izdelava. V podjetju Givos za vas po vaših željah pvc vrata izdelamo in tudi montiramo na vaši lokaciji.",
+      "ALU ograje za stanovanjske hiše in poslovne stavbe. Kvalitetna in hitra izvedba. V podjetju Givos za vas alu ograje izdelamo in montiramo.",
+      "ALU vrata - kvalitetna, hitra in prilagodljiva izdelava. V podjetju Givos za vas po vaših željah pvc vrata izdelamo in tudi montiramo na vaši lokaciji.",
+      "PVC ograje so idealna rešitev za vaš balkon ali dvoriščna vrata. Izdelujemo in montiramo pvc ograje v različnih barvah in oblikah. Prilgodljivo vašim željam.",
+    ],
+  },
+  contact: {
+    title: "Givos | Kontakt",
+    description: "Kontaktni podatki podjetja Givos d.o.o.",
+  },
+  aboutUs: {
+    title: "Givos | O nas",
+    description:
+      "Givos d.o.o. gradbeni ineniring, izdelava ALU in PVC vrat in ograj, svetovanje.",
+  },
+};

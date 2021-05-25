@@ -32,7 +32,9 @@ import {
   galleryPictures as pictures,
   gallerySubtitle as subtitle,
   galleryLinks as links,
+  seoData,
 } from "../../public/data/data";
+import Head from "next/head";
 
 export async function getStaticPaths() {
   const paths = links.map((link) => ({
@@ -100,6 +102,10 @@ const Gallery = ({
 
   return (
     <div style={{ position: "absolute", backgroundColor: "white" }}>
+      <Head>
+        <title>{seoData.gallery.title[type]}</title>
+        <meta name="description" content={seoData.gallery.description[type]} />
+      </Head>
       <Navbar />
       <WideContainer>
         <InnerContainer ref={containerRef}>

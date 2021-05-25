@@ -24,7 +24,8 @@ import { formData } from "../public/data/data";
 import GoogleMaps from "../components/GoogleMaps";
 import useWindowSize from "../utils/useWindowSize";
 import _ from "lodash";
-import { contactInfoData as data } from "../public/data/data";
+import { contactInfoData as data, seoData } from "../public/data/data";
+import Head from "next/head";
 
 const Contact = ({ contactInfoData = data }) => {
   const themeContext = useContext(ThemeContext);
@@ -69,6 +70,10 @@ const Contact = ({ contactInfoData = data }) => {
 
   return (
     <div style={{ position: "absolute" }}>
+      <Head>
+        <title>{seoData.contact.title}</title>
+        <meta name="description" content={seoData.contact.description} />
+      </Head>
       <Navbar background={themeContext.colors.dark} color="white" />
       <WideContainer background={themeContext.colors.dark}>
         <OuterContent className="content">
