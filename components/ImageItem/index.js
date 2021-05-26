@@ -34,26 +34,40 @@ const ImageItem = ({
   const themeContext = useContext(ThemeContext);
   const { width, canAnimate } = useWindowSize();
   const timeout = useRef();
+  const observer = useRef();
+
+  const callback = (entries, observer) => {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        if (animateFadeIn && width >= themeContext.breakpoints.xl) {
+          FadeInOverlay({
+            itemRef: overlayRef.current,
+            delay: 0,
+            duration: 1,
+          });
+          observer.unobserve(entry.target);
+        } else {
+          TriggeredFadeIn({ itemRef: containerRef.current });
+          observer.unobserve(entry.target);
+        }
+      }
+    });
+  };
 
   useEffect(() => {
     hasResized = false;
     window.addEventListener("resize", resizeHandler);
 
     if (canAnimate) {
+      timeout.current = setTimeout(() => {
+        observer.current = new IntersectionObserver(callback);
+        observer.current.observe(containerRef.current);
+      }, 1200);
+
       if (width >= themeContext.breakpoints.xl) {
         gsap.set(containerRef.current, {
           visibility: "visible",
         });
-        if (animateFadeIn) {
-          FadeInOverlay({
-            itemRef: overlayRef.current,
-            delay: 0.6,
-          });
-        }
-      } else {
-        timeout.current = setTimeout(() => {
-          TriggeredFadeIn({ itemRef: containerRef.current });
-        }, 1200);
       }
       return () => {
         if (timeout.current) {
@@ -61,8 +75,6 @@ const ImageItem = ({
         }
       };
     }
-
-    return () => {};
   }, [canAnimate]);
 
   const resizeHandler = () => {

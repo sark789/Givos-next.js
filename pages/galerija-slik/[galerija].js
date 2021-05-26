@@ -33,6 +33,7 @@ import {
   gallerySubtitle as subtitle,
   galleryLinks as links,
   seoData,
+  pvc_fence_images,
 } from "../../public/data/data";
 import Head from "next/head";
 
@@ -61,7 +62,6 @@ export async function getStaticProps(context) {
     props: { galerija: galerija, type: type, key: type },
   };
 }
-
 const Gallery = ({
   galleryPictures = pictures,
   type = 0,
@@ -78,6 +78,7 @@ const Gallery = ({
   const themeContext = useContext(ThemeContext);
   let reconstructedLinks = [];
   let reconstructedTitles = [];
+  const imageloadTimeout = useRef();
 
   reconstructedTitles = gallerySubtitle.filter(
     (item) => item !== gallerySubtitle[type]

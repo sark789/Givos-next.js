@@ -8,6 +8,29 @@ import alu_fence_door_hero_resized from "../images/alu_fence_door_hero_resized.j
 import pvc_fence_hero_resized from "../images/pvc_fence_hero_resized.jpg";
 import pvc_fence_door_hero_resized from "../images/pvc_fence_door_hero_resized.jpg";
 
+/* const glob = require("glob"); */
+/* const allEntries = glob.sync("../images/pvc_ograje/*.jpg"); */
+
+/* const images = require.context(
+  "../images/pvc_ograje",
+  true,
+  /\.(png|jpe?g|svg)$/
+); */
+/* export const images = require("../images/pvc_ograje/*"); */
+
+/* function importAll(r) {
+  return r.keys().map(r);
+} */
+
+/* export const images = require("../images/pvc_ograje/pvc_ograje(1).jpg"); */
+
+function requireAll(r) {
+  return r.keys().map(r);
+}
+export const pvc_fence_images = requireAll(
+  require.context("../images/pvc_ograje", false)
+);
+
 /* HERO */
 export const heroImages = [
   pvc_fence_door_hero,
@@ -433,26 +456,7 @@ export const galleryPictures = [
     alu_fence_hero,
     pvc_fence_door_hero,
   ],
-  [
-    pvc_fence_door_hero,
-    alu_fence_hero,
-    alu_fence_door_hero,
-    pvc_fence_hero,
-    alu_fence_hero,
-    pvc_fence_door_hero,
-    alu_fence_door_hero,
-    pvc_fence_hero,
-    alu_fence_hero,
-    pvc_fence_door_hero,
-    alu_fence_door_hero,
-    pvc_fence_hero,
-    alu_fence_hero,
-    pvc_fence_door_hero,
-    alu_fence_door_hero,
-    pvc_fence_hero,
-    alu_fence_hero,
-    pvc_fence_door_hero,
-  ],
+  pvc_fence_images,
 ];
 
 export const gallerySubtitle = [
