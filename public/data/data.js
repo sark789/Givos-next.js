@@ -38,6 +38,8 @@ import pvc_fence2 from "../images/produkt/pvc_fence2.jpg";
 import pvc_fence3 from "../images/produkt/pvc_fence3.jpg";
 import pvc_fence4 from "../images/produkt/pvc_fence4.jpg";
 
+import o_nas from "../images/o_nas.jpg";
+
 function requireAll(r) {
   return r.keys().map(r);
 }
@@ -365,7 +367,7 @@ export const aboutUsInfoData = [
 ];
 
 export const aboutUsPictureInfo = {
-  image: [pvc_fence_hero],
+  image: [o_nas],
   title: ["Slika podjetja Givos"],
 };
 

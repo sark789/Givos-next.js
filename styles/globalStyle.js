@@ -4,7 +4,7 @@ const GlobalStyle = createGlobalStyle`
 
 
 
-
+    
     *{
         margin: 0;
         padding: 0;
@@ -14,10 +14,12 @@ const GlobalStyle = createGlobalStyle`
     }
 
 
-   *::-webkit-scrollbar{
+
+
+ *::-webkit-scrollbar{
         width: 0;
         height: 0;
-    }
+    } 
 
     h1{  
         font-family: 'Spectral', serif;

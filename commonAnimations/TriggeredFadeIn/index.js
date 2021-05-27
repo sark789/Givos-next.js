@@ -7,7 +7,7 @@ export const TriggeredFadeIn = ({
   itemRef,
   triggerOffset = 0,
   distance = 100,
-  duration = 1.2,
+  duration = 1,
   delay = 0,
 }) => {
   var tl = gsap.timeline({

@@ -40,7 +40,9 @@ const ImageItem = ({
   const callback = (entries, observer) => {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
-        TriggeredFadeIn({ itemRef: containerRef.current });
+        TriggeredFadeIn({
+          itemRef: containerRef.current,
+        });
         observer.unobserve(entry.target);
       }
     });
