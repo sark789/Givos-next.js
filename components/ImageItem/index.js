@@ -102,7 +102,7 @@ const ImageItem = ({
       >
         {isgallery ? (
           <a href={image}>
-            <LazyLoad offset={400} once>
+            <LazyLoad offset={1200} once>
               <Image src={image} alt={alt} />
             </LazyLoad>
           </a>
