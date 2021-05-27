@@ -1,6 +1,11 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import DescriptionSection from "../../styles/pages/product/DescriptionSection";
+import dynamic from "next/dynamic";
+/* import DescriptionSection from "../../styles/pages/product/DescriptionSection"; */
+const DescriptionSection = dynamic(() =>
+  import("../../styles/pages/product/DescriptionSection")
+);
 import LandingSection from "../../styles/pages/product/landingSection";
+
 import {
   heroImages,
   heroImageAlts,
@@ -15,8 +20,14 @@ import {
   productLinks,
   seoData,
 } from "../../public/data/data";
-import GallerySection from "../../styles/pages/product/gallerySection";
-import ContactSection from "../../styles/pages/product/contactSection";
+/* import GallerySection from "../../styles/pages/product/gallerySection"; */
+const GallerySection = dynamic(() =>
+  import("../../styles/pages/product/gallerySection")
+);
+/* import ContactSection from "../../styles/pages/product/contactSection"; */
+const ContactSection = dynamic(() =>
+  import("../../styles/pages/product/contactSection")
+);
 import gsap from "gsap";
 import { WideContainer } from "../../styles/commonStyles";
 import { DescriptionAndGalleryWrapper } from "../../styles/pages/product/ProductElements";
