@@ -13,6 +13,7 @@ import { ThemeContext } from "styled-components";
 import useWindowSize from "../../utils/useWindowSize";
 import FadeInOverlay from "../../commonAnimations/FadeInOverlay";
 import gsap from "gsap";
+import LazyLoad from "react-lazyload";
 /* import Image from "next/image"; */
 
 var hasResized = false;
@@ -101,8 +102,9 @@ const ImageItem = ({
       >
         {isgallery ? (
           <a href={image}>
-            <Image src={image} alt={alt} />
-            {/* <Image src={image} alt={alt} width={420} height={420} /> */}
+            <LazyLoad offset={400} once>
+              <Image src={image} alt={alt} />
+            </LazyLoad>
           </a>
         ) : (
           <Image src={image} alt={alt} />
