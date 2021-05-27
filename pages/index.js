@@ -373,7 +373,7 @@ const Hero = ({
       <HeroContainer isDesktop={!isLargeDisplay()} className="hero-container">
         {reconstructedImageArray.map((imageIndex, index) => (
           <ImageContainer
-            key={images[index]}
+            key={images[index].huge}
             ref={addToRefs}
             isDesktop={!isLargeDisplay()}
           >
@@ -381,7 +381,8 @@ const Hero = ({
               className={`image-animation scale-in-${imageIndex}`}
             />
             <Image
-              src={images[imageIndex]}
+              src={images[imageIndex].small}
+              srcSet={`${images[imageIndex].small} 300w, ${images[imageIndex].medium} 768w, ${images[imageIndex].large} 1280w, ${images[imageIndex].huge} 3200w`}
               alt={alts && alts[imageIndex]}
               className={`image-animation scale-in-${imageIndex}`}
             />

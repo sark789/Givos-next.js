@@ -1,7 +1,22 @@
-import alu_fence_hero from "../images/alu_fence_hero.jpg";
-import alu_fence_door_hero from "../images/alu_fence_door_hero.jpg";
-import pvc_fence_hero from "../images/pvc_fence_hero.jpg";
-import pvc_fence_door_hero from "../images/pvc_fence_door_hero.jpg";
+import alu_fence_hero from "../images/hero/alu_fence_hero.jpg";
+import alu_fence_door_hero from "../images/hero/alu_fence_door_hero.jpg";
+import pvc_fence_hero from "../images/hero/pvc_fence_hero.jpg";
+import pvc_fence_door_hero from "../images/hero/pvc_fence_door_hero.jpg";
+
+import alu_fence_hero_large from "../images/hero/alu_fence_hero_large.jpg";
+import alu_fence_door_hero_large from "../images/hero/alu_fence_door_hero_large.jpg";
+import pvc_fence_hero_large from "../images/hero/pvc_fence_hero_large.jpg";
+import pvc_fence_door_hero_large from "../images/hero/pvc_fence_door_hero_large.jpg";
+
+import alu_fence_hero_medium from "../images/hero/alu_fence_hero_medium.jpg";
+import alu_fence_door_hero_medium from "../images/hero/alu_fence_door_hero_medium.jpg";
+import pvc_fence_hero_medium from "../images/hero/pvc_fence_hero_medium.jpg";
+import pvc_fence_door_hero_medium from "../images/hero/pvc_fence_door_hero_medium.jpg";
+
+import alu_fence_hero_small from "../images/hero/alu_fence_hero_small.jpg";
+import alu_fence_door_hero_small from "../images/hero/alu_fence_door_hero_small.jpg";
+import pvc_fence_hero_small from "../images/hero/pvc_fence_hero_small.jpg";
+import pvc_fence_door_hero_small from "../images/hero/pvc_fence_door_hero_small.jpg";
 
 import alu_fence_hero_resized from "../images/alu_fence_hero_resized.jpg";
 import alu_fence_door_hero_resized from "../images/alu_fence_door_hero_resized.jpg";
@@ -33,10 +48,33 @@ export const pvc_fence_images = requireAll(
 
 /* HERO */
 export const heroImages = [
-  pvc_fence_door_hero,
-  alu_fence_hero,
-  alu_fence_door_hero,
-  pvc_fence_hero,
+  {
+    huge: pvc_fence_door_hero,
+    large: pvc_fence_door_hero_large,
+    medium: alu_fence_hero_medium,
+    small: alu_fence_hero_small,
+  },
+
+  {
+    huge: alu_fence_hero,
+    large: alu_fence_hero_large,
+    medium: alu_fence_door_hero_medium,
+    small: alu_fence_door_hero_small,
+  },
+
+  {
+    huge: alu_fence_door_hero,
+    large: alu_fence_door_hero_large,
+    medium: pvc_fence_hero_medium,
+    small: pvc_fence_hero_small,
+  },
+
+  {
+    huge: pvc_fence_hero,
+    large: pvc_fence_hero_large,
+    medium: pvc_fence_door_hero_medium,
+    small: pvc_fence_door_hero_small,
+  },
 ];
 
 export const heroImageAlts = [

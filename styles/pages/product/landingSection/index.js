@@ -53,7 +53,8 @@ const LandingSection = ({ image, alt, title }) => {
         <ImageContainer>
           <Image
             className="product-image-animation image-pin"
-            src={image}
+            src={image.small}
+            srcSet={`${image.small} 300w, ${image.medium} 768w, ${image.large} 1280w, ${image.huge} 3200w`}
             alt={alt}
           />
           <PictureOverlay className="product-image-animation image-pin" />
