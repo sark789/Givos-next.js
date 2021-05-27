@@ -19,7 +19,9 @@ import {
   WideContainer,
 } from "../../styles/commonStyles";
 import Navbar from "../../components/Navbar/index";
-import ImageItem from "../../components/ImageItem";
+import dynamic from "next/dynamic";
+/* import ImageItem from "../../components/ImageItem"; */
+const ImageItem = dynamic(() => import("../../components/ImageItem"));
 import Footer from "../../components/Footer";
 import { SRLWrapper } from "simple-react-lightbox";
 import FadeIn from "../../commonAnimations/FadeIn";
@@ -74,11 +76,10 @@ const Gallery = ({
   let lineRef = useRef();
   let titleWrapperRef = useRef();
   const { width } = useWindowSize();
-  const [isPictureLoaded, setIsPictureLoaded] = useState(false);
+
   const themeContext = useContext(ThemeContext);
   let reconstructedLinks = [];
   let reconstructedTitles = [];
-  const imageloadTimeout = useRef();
 
   reconstructedTitles = gallerySubtitle.filter(
     (item) => item !== gallerySubtitle[type]
