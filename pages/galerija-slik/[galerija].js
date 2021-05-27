@@ -19,9 +19,7 @@ import {
   WideContainer,
 } from "../../styles/commonStyles";
 import Navbar from "../../components/Navbar/index";
-import dynamic from "next/dynamic";
-/* import ImageItem from "../../components/ImageItem"; */
-const ImageItem = dynamic(() => import("../../components/ImageItem"));
+import ImageItem from "../../components/ImageItem";
 import Footer from "../../components/Footer";
 import { SRLWrapper } from "simple-react-lightbox";
 import FadeIn from "../../commonAnimations/FadeIn";
@@ -35,7 +33,6 @@ import {
   gallerySubtitle as subtitle,
   galleryLinks as links,
   seoData,
-  pvc_fence_images,
 } from "../../public/data/data";
 import Head from "next/head";
 

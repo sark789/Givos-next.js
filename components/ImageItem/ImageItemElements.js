@@ -8,7 +8,6 @@ export const ImageItemContainer = styled.div`
   flex-direction: ${(props) =>
     props.titleOnTop ? "column-reverse" : "column"};
   visibility: hidden;
-  visibility: ${(props) => props.visibility};
   width: 100%;
 
   ${breakpoint("xl")`

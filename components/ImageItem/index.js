@@ -40,36 +40,19 @@ const ImageItem = ({
   const callback = (entries, observer) => {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
-        if (animateFadeIn && width >= themeContext.breakpoints.xl) {
-          FadeInOverlay({
-            itemRef: overlayRef.current,
-            delay: 0,
-            duration: 1,
-          });
-          observer.unobserve(entry.target);
-        } else {
-          TriggeredFadeIn({ itemRef: containerRef.current });
-          observer.unobserve(entry.target);
-        }
+        TriggeredFadeIn({ itemRef: containerRef.current });
+        observer.unobserve(entry.target);
       }
     });
   };
 
   useEffect(() => {
-    hasResized = false;
-    window.addEventListener("resize", resizeHandler);
-
     if (canAnimate) {
       timeout.current = setTimeout(() => {
         observer.current = new IntersectionObserver(callback);
         observer.current.observe(containerRef.current);
-      }, 1200);
+      }, 1000);
 
-      if (width >= themeContext.breakpoints.xl) {
-        gsap.set(containerRef.current, {
-          visibility: "visible",
-        });
-      }
       return () => {
         if (timeout.current) {
           clearTimeout(timeout.current);
@@ -78,24 +61,12 @@ const ImageItem = ({
     }
   }, [canAnimate]);
 
-  const resizeHandler = () => {
-    hasResized = true;
-    gsap.set(containerRef.current, {
-      visibility: "visible",
-    });
-    window.removeEventListener("resize", resizeHandler);
-  };
-
   return (
     <ImageItemContainer
       ref={containerRef}
       titleOnTop={titleOnTop}
       marginBottom={marginBottom}
-      visibility={hasResized ? "visible" : "hidden"}
     >
-      {animateFadeIn && width >= themeContext.breakpoints.xl && !hasResized && (
-        <ImageOverlayForAnimation ref={overlayRef} />
-      )}
       <ImageWrapper
         fullSize={fullSize}
         style={{ cursor: isgallery && "pointer" }}
