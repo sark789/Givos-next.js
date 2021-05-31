@@ -388,7 +388,9 @@ const Hero = ({
               alt={alts && alts[imageIndex]}
               className={`image-animation scale-in-${imageIndex}`}
               key={
-                firstTime || isLargeDisplay() ? images[index].huge : Date.now()
+                firstTime || isLargeDisplay()
+                  ? images[index].huge
+                  : Math.random()
               }
             />
             <div ref={(el) => (titleRef = el)}>
