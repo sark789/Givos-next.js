@@ -5,7 +5,8 @@ const FadeIn = (
   stagger = 0,
   delay = 0.8,
   duration = 1.8,
-  ease = "expo.inOut"
+  ease = "expo.inOut",
+  onCompleteCallback = () => {}
 ) => {
   var tl = gsap.fromTo(
     itemRef,
@@ -20,6 +21,7 @@ const FadeIn = (
       stagger: {
         amount: stagger,
       },
+      onComplete: onCompleteCallback,
     }
   );
 

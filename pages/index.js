@@ -58,6 +58,7 @@ const Hero = ({
   const [forceScrollStop, setForceScrollStop] = useState(false);
   const [menuState] = useContext(MenuContext);
   let titleRef = useRef();
+  const [firstTime, setFirstTime] = useState(true);
 
   function isLargeDisplay() {
     if (width) {
@@ -74,10 +75,7 @@ const Hero = ({
   const [containerIndex, setContainerIndex] = useState(1);
   let mobileStartArray = [];
   images.map((image, index) => mobileStartArray.push(index));
-  let startArray =
-    width >= themeContext.breakpoints.md
-      ? [0, 1, 2]
-      : [...mobileStartArray.slice(1), 0];
+  let startArray = [0, 1, 2];
 
   const [reconstructedImageArray, setReconstructedImageArray] =
     useState(startArray);
@@ -243,6 +241,10 @@ const Hero = ({
     }
   };
 
+  const initCallback = () => {
+    setFirstTime(false);
+  };
+
   //init animation
   useEffect(() => {
     inited = false;
@@ -252,7 +254,7 @@ const Hero = ({
       visibility: "visible",
     });
 
-    FadeIn(".image-animation");
+    FadeIn(".image-animation", 0, 0.8, 1.8, "expo.inOut", initCallback);
 
     startTimeout.current = setTimeout(() => {
       canScroll = true;
@@ -385,7 +387,7 @@ const Hero = ({
               srcSet={`${images[imageIndex].small} 300w, ${images[imageIndex].medium} 768w, ${images[imageIndex].large} 1280w, ${images[imageIndex].huge} 3200w`}
               alt={alts && alts[imageIndex]}
               className={`image-animation scale-in-${imageIndex}`}
-              key={Math.random()}
+              key={firstTime ? images[index].huge : Date.now()}
             />
             <div ref={(el) => (titleRef = el)}>
               <Title
