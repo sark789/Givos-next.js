@@ -43,7 +43,7 @@ const Form = ({ formData }) => {
   async function onSubmit(data) {
     let config = {
       method: "post",
-      url: `${process.env.NEXT_PUBLIC_API_URL}/api/contact`,
+      url: `/api/contact`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -156,7 +156,6 @@ const Form = ({ formData }) => {
       <p
         style={{ paddingTop: "1rem", height: "40px", color: showMessage.color }}
       >
-        {console.log(showMessage)}
         {showMessage.msg}
       </p>
     </FormContainer>

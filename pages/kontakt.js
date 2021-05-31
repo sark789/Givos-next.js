@@ -61,6 +61,8 @@ const Contact = ({ contactInfoData = data }) => {
     gsap.set(".contact-overlay-animation", { height: 0 });
   };
 
+  console.log(host);
+
   useEffect(() => {
     window.addEventListener("resize", _.debounce(removeOverlay, 250));
     return () => {
@@ -145,23 +147,5 @@ const Contact = ({ contactInfoData = data }) => {
     </div>
   );
 };
-
-/* //dummy data
-const dummyContactInfoData = [
-  {
-    title: "title1:",
-    text: ["text1"],
-  },
-  {
-    title: "title2:",
-    text: ["text2.1", "text3.1", "text4.1"],
-    text2: ["text2.2", "text3.2", "text4.2"],
-  },
-];
-
-//defaults
-Contact.defaultProps = {
-  contactInfoData: dummyContactInfoData,
-}; */
 
 export default Contact;
