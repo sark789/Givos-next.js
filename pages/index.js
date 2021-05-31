@@ -385,13 +385,10 @@ const Hero = ({
             <Image
               src={images[imageIndex].small}
               srcSet={`${images[imageIndex].small} 300w, ${images[imageIndex].medium} 768w, ${images[imageIndex].large} 1280w, ${images[imageIndex].huge} 3200w`}
+              style={{ backgroundImage: images[imageIndex].small }}
               alt={alts && alts[imageIndex]}
               className={`image-animation scale-in-${imageIndex}`}
-              key={
-                firstTime || isLargeDisplay()
-                  ? images[index].huge
-                  : Math.random()
-              }
+              key={firstTime ? images[index].huge : Math.random()}
             />
             <div ref={(el) => (titleRef = el)}>
               <Title
