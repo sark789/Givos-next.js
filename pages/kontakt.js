@@ -61,8 +61,6 @@ const Contact = ({ contactInfoData = data }) => {
     gsap.set(".contact-overlay-animation", { height: 0 });
   };
 
-  console.log(host);
-
   useEffect(() => {
     window.addEventListener("resize", _.debounce(removeOverlay, 250));
     return () => {

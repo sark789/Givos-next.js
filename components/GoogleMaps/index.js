@@ -29,7 +29,7 @@ const onClickHandler = () => {
 
 const GoogleMaps = ({ center }) => {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_KEY,
+    googleMapsApiKey: "AIzaSyDFlGBo2PYGfR8K1kXBHrRiDLLxDPYaYdM",
   });
 
   return (
