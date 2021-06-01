@@ -366,6 +366,10 @@ const Hero = ({
       <Head>
         <title>{seoData.hero.title}</title>
         <meta name="description" content={seoData.hero.description} />
+        <meta
+          name="google-site-verification"
+          content="G9pTyyEEfn_zWhUfFZbnkG9WZg4F_xbcA9fJl-TbqrM"
+        />
       </Head>
       <Navbar
         isForHeroPage
