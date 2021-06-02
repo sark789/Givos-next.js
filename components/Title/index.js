@@ -82,7 +82,7 @@ const Title = ({
               forceScrollStop={forceScrollStop}
             />
           ) : (
-            <NormalText> Kle neki neki</NormalText>
+            <NormalText> Kle neki nekii</NormalText>
           )}
         </div>
       </LinkContainer>
