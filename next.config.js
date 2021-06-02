@@ -6,6 +6,15 @@ const withTM = require("next-transpile-modules")([
 ]);
 
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/o-podjetju/kontakt",
+        destination: "/kontakt",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

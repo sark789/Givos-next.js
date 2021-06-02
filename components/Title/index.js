@@ -78,11 +78,11 @@ const Title = ({
         <div ref={item3Ref} className={`animation3-${index}`}>
           {!isForProductPage ? (
             <LinkTo
-              linkRef={`ograje/${linkRef[index]}`}
+              linkRef={`${linkRef[index]}`}
               forceScrollStop={forceScrollStop}
             />
           ) : (
-            <NormalText> Kle neki nekii</NormalText>
+            <NormalText> Kle nekii nekii</NormalText>
           )}
         </div>
       </LinkContainer>

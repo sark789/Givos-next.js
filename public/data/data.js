@@ -290,19 +290,19 @@ export const footerAndMenuData = [
     links: [
       {
         title: "ALU Ograje",
-        link: "/ograje/alu-ograje",
+        link: "/alu-ograje",
       },
       {
         title: "ALU Vrata",
-        link: "/ograje/alu-vrata",
+        link: "/alu-vrata",
       },
       {
         title: "PVC Ograje",
-        link: "/ograje/pvc-ograje",
+        link: "/pvc-ograje",
       },
       {
         title: "PVC Vrata",
-        link: "/ograje/pvc-vrata",
+        link: "/pvc-vrata",
       },
     ],
   },

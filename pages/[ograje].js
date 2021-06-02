@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import DescriptionSection from "../../styles/pages/product/DescriptionSection";
-import LandingSection from "../../styles/pages/product/landingSection";
+import DescriptionSection from "../styles/pages/product/DescriptionSection";
+import LandingSection from "../styles/pages/product/landingSection";
 
 import {
   heroImages,
@@ -15,23 +15,23 @@ import {
   galleryLinks,
   productLinks,
   seoData,
-} from "../../public/data/data";
-import GallerySection from "../../styles/pages/product/gallerySection";
-import ContactSection from "../../styles/pages/product/contactSection";
+} from "../public/data/data";
+import GallerySection from "../styles/pages/product/gallerySection";
+import ContactSection from "../styles/pages/product/contactSection";
 import gsap from "gsap";
-import { WideContainer } from "../../styles/commonStyles";
-import { DescriptionAndGalleryWrapper } from "../../styles/pages/product/ProductElements";
-import Footer from "../../components/Footer";
+import { WideContainer } from "../styles/commonStyles";
+import { DescriptionAndGalleryWrapper } from "../styles/pages/product/ProductElements";
+import Footer from "../components/Footer";
 import {
   KillProductAnimations,
   ParallaxPictureAnimation,
   PinText,
-} from "../../styles/pages/product/ProductAnimations";
+} from "../styles/pages/product/ProductAnimations";
 import { ThemeContext } from "styled-components";
-import useWindowSize from "../../utils/useWindowSize";
+import useWindowSize from "../utils/useWindowSize";
 import _ from "lodash";
-import Navbar from "../../components/Navbar";
-import isTouchDevice from "../../utils/isTouchDevice";
+import Navbar from "../components/Navbar";
+import isTouchDevice from "../utils/isTouchDevice";
 import Head from "next/head";
 
 export async function getStaticPaths() {
