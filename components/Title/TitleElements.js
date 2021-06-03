@@ -16,9 +16,18 @@ export const Content = styled.div`
 
 export const TitleContainer = styled.div``;
 
-export const TitleText = styled.h2`
+export const TitleText = styled.h1`
   display: inline;
   position: relative;
+  font-size: ${(props) => !props.isForProductPage && "3rem"};
+
+  ${breakpoint("md")`
+  font-size: ${(props) => !props.isForProductPage && "4rem"};
+    `}
+
+  ${breakpoint("md")`
+  font-size: ${(props) => !props.isForProductPage && "5vw"};
+    `}
 `;
 
 export const NormalText = styled.p`

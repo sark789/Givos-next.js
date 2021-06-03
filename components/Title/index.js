@@ -20,7 +20,6 @@ const Title = ({
   linkRef,
   forceScrollStop = null,
 }) => {
-  var tag = !isForProductPage ? "h2" : "h1";
   const containerRef = useRef();
   const item1Ref = useRef();
   const item2Ref = useRef();
@@ -62,12 +61,16 @@ const Title = ({
     <Content top={isForProductPage} ref={containerRef}>
       <div style={{ overflow: "hidden" }}>
         <TitleContainer ref={item1Ref} className={` animation1-${index}`}>
-          <TitleText as={tag}>{getFirstWord(titles[index])}</TitleText>
+          <TitleText isForProductPage={isForProductPage}>
+            {getFirstWord(titles[index])}
+          </TitleText>
         </TitleContainer>
       </div>
       <div style={{ overflow: "hidden" }}>
         <TitleContainer ref={item2Ref} className={` animation2-${index}`}>
-          <TitleText as={tag}>{getSecondWord(titles[index])}</TitleText>
+          <TitleText isForProductPage={isForProductPage}>
+            {getSecondWord(titles[index])}
+          </TitleText>
         </TitleContainer>
       </div>
       <Underline

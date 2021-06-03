@@ -107,9 +107,9 @@ export const heroTitles = [
 /*PRODUCT PAGE */
 export const productMainDescription = [
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Imperdiet laoreet nascetur in duis nibh enim sit merg ora.",
+  "Aluminijasta ograja je zelo trpežna na vremenske vplive in je elegantnega videza, ki bo popestril vašo okolico.",
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Imperdiet laoreet nascetur in duis nibh enim sit merg ora.",
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Imperdiet laoreet nascetur in duis nibh enim sit merg ora.",
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Imperdiet laoreet nascetur in duis nibh enim sit merg ora.",
+  "PVC ograja je zelo prožna in je izdelana iz visoko kakovostnih profilov, ki ne potrebujejo nobenga vzdrževanja.",
 ];
 
 export const productTextArray = [
@@ -118,16 +118,16 @@ export const productTextArray = [
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, lorem turpis quam vulputate donec at. Dui viverra magna orci, sit rhoncus cursus sodales commodo placerat. Venenatis tincidunt ullamcorper sed vitae ipsum dolor. Ac placerat mattis ut proin. Augue aliquam, in sit integer orci. Vel mi arcu vivamus mattis arcu. Cursus est sed quis habitasse.",
   ],
   [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, lorem turpis quam vulputate donec at. Dui viverra magna orci, sit rhoncus cursus sodales commodo placerat. Venenatis tincidunt ullamcorper sed vitae ipsum dolor. Ac placerat mattis ut proin. Augue aliquam, in sit integer orci. Vel mi arcu vivamus mattis arcu. Cursus est sed quis habitasse.",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, lorem turpis quam vulputate donec at. Dui viverra magna orci, sit rhoncus cursus sodales commodo placerat. Venenatis tincidunt ullamcorper sed vitae ipsum dolor. Ac placerat mattis ut proin. Augue aliquam, in sit integer orci. Vel mi arcu vivamus mattis arcu. Cursus est sed quis habitasse.",
+    "Aluminijaste ograje so izdelane iz ALU ograjnih profilov različnih dimenzij in oblik in so prašno barvane po vaši željeni barvi (po RAL barvni lestvici). Izvedene so predvsem za zunanjo uporabo - vrt, balkon ali stopnišče. Ograje se lahko izdela na staro že obstoječo kovinsko konstrukcijo oz. med že obstoječe stebre ali pa se izdela vse na novo.",
+    "ALU ograja se izdela po meri in ne potrebuje nobenega posebnega vzdrževanja. Zaradi izjemnega videza nudi estetski učinek in doprinese k modernosti vaše hiše ali stanovanja. Postavite jih lahko za namen varovanja na stopnišču, terasi, balkonu, prav tako pa omogočajo zasebnost in varovanje pred morebitnimi vlomilci.",
   ],
   [
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, lorem turpis quam vulputate donec at. Dui viverra magna orci, sit rhoncus cursus sodales commodo placerat. Venenatis tincidunt ullamcorper sed vitae ipsum dolor. Ac placerat mattis ut proin. Augue aliquam, in sit integer orci. Vel mi arcu vivamus mattis arcu. Cursus est sed quis habitasse.",
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, lorem turpis quam vulputate donec at. Dui viverra magna orci, sit rhoncus cursus sodales commodo placerat. Venenatis tincidunt ullamcorper sed vitae ipsum dolor. Ac placerat mattis ut proin. Augue aliquam, in sit integer orci. Vel mi arcu vivamus mattis arcu. Cursus est sed quis habitasse.",
   ],
   [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, lorem turpis quam vulputate donec at. Dui viverra magna orci, sit rhoncus cursus sodales commodo placerat. Venenatis tincidunt ullamcorper sed vitae ipsum dolor. Ac placerat mattis ut proin. Augue aliquam, in sit integer orci. Vel mi arcu vivamus mattis arcu. Cursus est sed quis habitasse.",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, lorem turpis quam vulputate donec at. Dui viverra magna orci, sit rhoncus cursus sodales commodo placerat. Venenatis tincidunt ullamcorper sed vitae ipsum dolor. Ac placerat mattis ut proin. Augue aliquam, in sit integer orci. Vel mi arcu vivamus mattis arcu. Cursus est sed quis habitasse.",
+    "Izdelane in namenjene so za zunanjo uporabo ter so odporne na klimatske vplive. PVC ograje iz naše ponudbe so odporne in prilagojene za področja kjer je zelo vroče ali pa hladno vreme. Prav tako so  odporne tudi na vplive soli v primorskih področjih. Ne potrebujejo nobenega vzdrževanja, kar vam prihrani veliko na času in denarju.",
+    "PVC ograje se lahko izdelajo v beli, sivi, oker, beš barvi ter v imitacija zlatega hrasta. Garancija na obstojnost bele barve je 10 let, na ostale barve pa 5 let. ",
   ],
 ];
 
@@ -165,7 +165,7 @@ export const productSubtitleArray = [
   [
     {
       subtitle: "Letvice",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, lorem turpis quam vulputate donec at. Dui viverra magna orci, sit rhoncus cursus sodales commodo placerat.",
+      text: "PVC ograjni profili iz katerih izdelujemo PVC ograje so izdelani iz enake surovine kot so PVC okna. So izredno visoke kvalitete in laboratorijsko preizkušeni ter UV stabilizirani. Pomemben podatek je to, da niso izdelani iz recikliranega materiala.",
     },
     {
       subtitle: "Stebri",
@@ -232,11 +232,11 @@ export const productSubtitleArray2 = [
   [
     {
       subtitle: "Profili",
-      text: "Profil1, Profil2, Profil3, Profil4, Profil5, Profil6, Profil7",
+      text: "P062, P020, P021, P048, P063, P090, P055, kombinacija P062 in P069",
     },
     {
       subtitle: "Barve",
-      text: "3 osnovne ali prašno po meri",
+      text: "Bela, siva, oker, beš, imitacija zlatega hreasta (renolit folija)",
     },
     {
       subtitle: "Dolžina",
@@ -465,10 +465,10 @@ export const seoData = {
   },
   gallery: {
     title: [
-      "Givos | Galerija Pvc Vrata",
-      "Givos | Galerija Alu Ograje",
-      "Givos | Galerija Alu Vrata",
-      "Givos | Galerija Pvc Ograje",
+      "Galerija PVC vrata",
+      "Galerija ALU ograje",
+      "Galerija ALU vrata",
+      "Galerija PVC ograje",
     ],
     description: [
       "Galerija slik PVC Vrat",
@@ -478,12 +478,7 @@ export const seoData = {
     ],
   },
   product: {
-    title: [
-      "Givos | Pvc Vrata",
-      "Givos | Alu Ograje",
-      "Givos | Alu Vrata",
-      "Givos | Pvc Ograje",
-    ],
+    title: ["PVC vrata", "ALU ograje", "ALU vrata", "PVC ograje"],
     description: [
       "PVC vrata - kvalitetna, hitra in prilagodljiva izdelava. V podjetju Givos za vas po vaših željah pvc vrata izdelamo in tudi montiramo na vaši lokaciji.",
       "ALU ograje za stanovanjske hiše in poslovne stavbe. Kvalitetna in hitra izvedba. V podjetju Givos za vas alu ograje izdelamo in montiramo.",
