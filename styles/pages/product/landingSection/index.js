@@ -16,7 +16,7 @@ import { useWindowSize } from "react-use";
 import isTouchDevice from "../../../../utils/isTouchDevice";
 import gsap from "gsap";
 
-const LandingSection = ({ image, alt, title }) => {
+const LandingSection = ({ image, alt, title, subtitle }) => {
   let titleToArray = [];
   titleToArray.push(title);
   const { height } = useWindowSize();
@@ -58,7 +58,12 @@ const LandingSection = ({ image, alt, title }) => {
             alt={alt}
           />
           <PictureOverlay className="product-image-animation image-pin" />
-          <Title titles={titleToArray} index={0} isForProductPage={true} />
+          <Title
+            titles={titleToArray}
+            index={0}
+            isForProductPage={true}
+            subtitle={subtitle}
+          />
           <SectionNumberContainer>
             <SectionNumber
               vertical={true}

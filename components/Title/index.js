@@ -19,6 +19,7 @@ const Title = ({
   isForProductPage = false,
   linkRef,
   forceScrollStop = null,
+  subtitle = "",
 }) => {
   const containerRef = useRef();
   const item1Ref = useRef();
@@ -85,7 +86,7 @@ const Title = ({
               forceScrollStop={forceScrollStop}
             />
           ) : (
-            <NormalText> Kle nekii nekii</NormalText>
+            <NormalText>{subtitle}</NormalText>
           )}
         </div>
       </LinkContainer>

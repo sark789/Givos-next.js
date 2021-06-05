@@ -15,6 +15,7 @@ import {
   galleryLinks,
   productLinks,
   seoData,
+  productSubtitle,
 } from "../public/data/data";
 import GallerySection from "../styles/pages/product/gallerySection";
 import ContactSection from "../styles/pages/product/contactSection";
@@ -135,6 +136,7 @@ const Product = ({ index = 0 }) => {
         image={heroImages[index]}
         alt={heroImageAlts[index]}
         title={heroTitles[index]}
+        subtitle={productSubtitle[index]}
       />
       <WideContainer background={themeContext.colors.dark}>
         <DescriptionAndGalleryWrapper ref={containerRef}>

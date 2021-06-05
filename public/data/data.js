@@ -105,29 +105,37 @@ export const heroTitles = [
 ];
 
 /*PRODUCT PAGE */
+
+export const productSubtitle = [
+  " z navdihom",
+  " s stilom",
+  " s karakterjem",
+  " z razlogom",
+];
+
 export const productMainDescription = [
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Imperdiet laoreet nascetur in duis nibh enim sit merg ora.",
-  "Aluminijasta ograja je zelo trpežna na vremenske vplive in je elegantnega videza, ki bo popestril vašo okolico.",
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Imperdiet laoreet nascetur in duis nibh enim sit merg ora.",
-  "PVC ograja je zelo prožna in je izdelana iz visoko kakovostnih profilov, ki ne potrebujejo nobenga vzdrževanja.",
+  "PVC vrata nudijo varen in estetsko dovršen vhod v domače okolje. Z daljinskim upravljanjem razvajajo najbolj zahtevne lastnike.",
+  "Aluminijaste ograje trajajo vse življenje. Ne prepričajo le s svojo preprosto in sodobno zasnovo, temveč tudi s svojo izjemno kvaliteto.",
+  "Aluminijasta vrata s prefinjenim stilom in dovršenostjo poudarijo svoj karakter. Veličastno odpirajo ali neusmiljeno zapirajo svoja krila. ",
+  "PVC ograje so visoke kvalitete, odporne proti vremenskim vplivom in ne potrebujejo vzdrževanja. Z modernim izgledom preprosto navdušijo vsakogar.",
 ];
 
 export const productTextArray = [
   [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, lorem turpis quam vulputate donec at. Dui viverra magna orci, sit rhoncus cursus sodales commodo placerat. Venenatis tincidunt ullamcorper sed vitae ipsum dolor. Ac placerat mattis ut proin. Augue aliquam, in sit integer orci. Vel mi arcu vivamus mattis arcu. Cursus est sed quis habitasse.",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, lorem turpis quam vulputate donec at. Dui viverra magna orci, sit rhoncus cursus sodales commodo placerat. Venenatis tincidunt ullamcorper sed vitae ipsum dolor. Ac placerat mattis ut proin. Augue aliquam, in sit integer orci. Vel mi arcu vivamus mattis arcu. Cursus est sed quis habitasse.",
+    "PVC vrata so primerna za vhod na dvorišče in se lepo ujamejo s PVC ograjo. Različne velikosti in oblike zagotavljajo estetsko dopolnjevanje k različnim objektom. PVC vrata so lahko drsna ali dvokrilna, z motornim pogonom ali brez. Drsna vrata z motornim pogonom se odpirajo s pritiskom na daljinski upravljalec, ki odpelje vrata na levo ali desno stran.",
+    "Krilna vrata so na voljo eno krilna ali dvokrilna. Eno krilna vrata so primerna za manjše osebne prehode, medtem ko dvokrilna vrata odpirajo vhod na dvorišče. Odpiranje in zapiranje dvokrilnih vrat z motornim pogonom je enostavno in udobno, medtem, ko ročno odpiranje vrat marsikomu nudi varnost in zanesljivost.",
   ],
   [
-    "Aluminijaste ograje so izdelane iz ALU ograjnih profilov različnih dimenzij in oblik in so prašno barvane po vaši željeni barvi (po RAL barvni lestvici). Izvedene so predvsem za zunanjo uporabo - vrt, balkon ali stopnišče. Ograje se lahko izdela na staro že obstoječo kovinsko konstrukcijo oz. med že obstoječe stebre ali pa se izdela vse na novo.",
-    "ALU ograja se izdela po meri in ne potrebuje nobenega posebnega vzdrževanja. Zaradi izjemnega videza nudi estetski učinek in doprinese k modernosti vaše hiše ali stanovanja. Postavite jih lahko za namen varovanja na stopnišču, terasi, balkonu, prav tako pa omogočajo zasebnost in varovanje pred morebitnimi vlomilci.",
+    "Aluminijaste ograje so izdelane iz ALU ograjnih profilov. Različne oblike profilov omogočajo izdelavo različnih vrst in velikosti ograj, ki so primerne predvsem za vrtove, balkone in stopnišča. Primerne so tudi za večje industrijske objekte zaradi izjemne vzdržljivosti in uporabe brez vzdrževanja.",
+    "Z individualnim in strokovnim pristopom lahko ograjo namestimo na že obstoječo staro ograjno konstrukcijo ali med že obstoječe stebre, lahko pa jo izdelamo na novo. Z bogato barvno paleto ograj omogočamo strankam uresničitev njihovih želja, hkrati pa jim z naprednimi rešitvami nudimo varnost in zasebnost.",
   ],
   [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, lorem turpis quam vulputate donec at. Dui viverra magna orci, sit rhoncus cursus sodales commodo placerat. Venenatis tincidunt ullamcorper sed vitae ipsum dolor. Ac placerat mattis ut proin. Augue aliquam, in sit integer orci. Vel mi arcu vivamus mattis arcu. Cursus est sed quis habitasse.",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, lorem turpis quam vulputate donec at. Dui viverra magna orci, sit rhoncus cursus sodales commodo placerat. Venenatis tincidunt ullamcorper sed vitae ipsum dolor. Ac placerat mattis ut proin. Augue aliquam, in sit integer orci. Vel mi arcu vivamus mattis arcu. Cursus est sed quis habitasse.",
+    "Aluminijasta vrata so narejena iz najkvalitetnejših materialov, ki zagotavljajo veliko stopnjo varnosti in zasebnosti. Izbor različnih barv zagotovi stilsko dovršenost in eleganco. Aluminijasta vrata so primerna za vhod na dvorišče individualnih hiš ali večje vhode pri industrijskih objektih. Izjemno lepo se dopolnjujejo z ALU ograjami.",
+    "ALU vrata so lahko drsna ali dvokrilna, z motornim pogonom ali brez. Drsna vrata z motornim pogonom dajejo popolno udobje, saj s pritiskom na daljinski upravljalec upravljamo z vrati na daljavo. Krilna vrata so lahko enokrilna ali dvokrilna, ki se odpirajo ročno ali na motorni pogon. Eno krilna vrata so primerna za osebne prehode ali manjše vhode, medtem, ko dvokrilna vrata omogočajo vhod na večja dvorišča. ALU vrata naredimo po meri, s svojimi dolgoletnimi izkušnjami najdemo rešitev tudi za najbolj zahtevne stranke.",
   ],
   [
-    "Izdelane in namenjene so za zunanjo uporabo ter so odporne na klimatske vplive. PVC ograje iz naše ponudbe so odporne in prilagojene za področja kjer je zelo vroče ali pa hladno vreme. Prav tako so  odporne tudi na vplive soli v primorskih področjih. Ne potrebujejo nobenega vzdrževanja, kar vam prihrani veliko na času in denarju.",
-    "PVC ograje se lahko izdelajo v beli, sivi, oker, beš barvi ter v imitacija zlatega hrasta. Garancija na obstojnost bele barve je 10 let, na ostale barve pa 5 let. ",
+    "PVC ograje so izjemno kvalitetne, odporne proti vsem vremenskim vplivom in soli, ki je značilna za obmorske kraje. Z različnimi velikostmi in oblikami ogradimo vrtove, balkone in terase ter zavarujemo stopnišča.",
+    "S svojimi dolgoletnimi izkušnjami in individualnim pristopom lahko obstoječo ograjo odstranimo in zamenjamo z novo. Lahko uporabimo obstoječo ograjno konstrukcijo ali ograjne stebričke, lahko pa vse postavimo na novo po naročnikovih željah. Svojim strankam nudimo strokovno dovršene ograje, ki ne potrebujejo vzdrževanja in so cenovno dostopne.",
   ],
 ];
 
@@ -135,41 +143,41 @@ export const productSubtitleArray = [
   [
     {
       subtitle: "Letvice",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, lorem turpis quam vulputate donec at. Dui viverra magna orci, sit rhoncus cursus sodales commodo placerat.",
+      text: "Izjemna kvaliteta, različnih dimenzij, odporne na vremenske razmere, brez vzdrževanja",
     },
     {
       subtitle: "Stebri",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, lorem turpis quam vulputate donec at. Dui viverra magna orci, sit rhoncus cursus sodales commodo placerat.",
+      text: "Različna debelina, širina in oblika, odporni na vremenske razmere, brez vzdrževanja",
     },
   ],
   [
     {
       subtitle: "Letvice",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, lorem turpis quam vulputate donec at. Dui viverra magna orci, sit rhoncus cursus sodales commodo placerat.",
+      text: "Različni modeli, različna širina, debelina in oblika",
     },
     {
       subtitle: "Stebri",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, lorem turpis quam vulputate donec at. Dui viverra magna orci, sit rhoncus cursus sodales commodo placerat.",
+      text: "Različna debelina, širina in oblika, odporni na vremenske razmere, brez vzdrževanja",
     },
   ],
   [
     {
       subtitle: "Letvice",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, lorem turpis quam vulputate donec at. Dui viverra magna orci, sit rhoncus cursus sodales commodo placerat.",
+      text: "Izjemna kvaliteta, različnih dimenzij, odporne na vremenske razmere, brez vzdrževanja",
     },
     {
       subtitle: "Stebri",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, lorem turpis quam vulputate donec at. Dui viverra magna orci, sit rhoncus cursus sodales commodo placerat.",
+      text: "Različna debelina, širina in oblika, odporni na vremenske razmere, brez vzdrževanja",
     },
   ],
   [
     {
       subtitle: "Letvice",
-      text: "PVC ograjni profili iz katerih izdelujemo PVC ograje so izdelani iz enake surovine kot so PVC okna. So izredno visoke kvalitete in laboratorijsko preizkušeni ter UV stabilizirani. Pomemben podatek je to, da niso izdelani iz recikliranega materiala.",
+      text: "Izjemna kvaliteta, različnih dimenzij, odporne na vremenske razmere, brez vzdrževanja",
     },
     {
       subtitle: "Stebri",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, lorem turpis quam vulputate donec at. Dui viverra magna orci, sit rhoncus cursus sodales commodo placerat.",
+      text: "Različna debelina, širina in oblika, odporni na vremenske razmere, brez vzdrževanja",
     },
   ],
 ];
@@ -178,73 +186,73 @@ export const productSubtitleArray2 = [
   [
     {
       subtitle: "Profili",
-      text: "Profil1, Profil2, Profil3, Profil4, Profil5, Profil6, Profil7",
+      text: "Različni modeli, različna širina, debelina in oblika",
     },
     {
       subtitle: "Barve",
-      text: "3 osnovne ali prašno po meri",
+      text: "Bela, siva, oker",
     },
     {
       subtitle: "Dolžina",
-      text: "6m",
+      text: "6m ali razrez na poljubno dolžino",
     },
     {
       subtitle: "Montaža",
-      text: "Sami ali mi, prevoz itd.",
+      text: "Naše podjetje ali v lastni režiji",
     },
   ],
   [
     {
       subtitle: "Profili",
-      text: "Profil1, Profil2, Profil3, Profil4, Profil5, Profil6, Profil7",
+      text: "Različni modeli, različna širina, debelina in oblika",
     },
     {
       subtitle: "Barve",
-      text: "3 osnovne ali prašno po meri",
+      text: "Tri osnovne barve: antracit, rjava in bež, ostale prašno barvane po RAL barvni lestvici",
     },
     {
       subtitle: "Dolžina",
-      text: "6m",
+      text: "6m ali razrez na poljubno dolžino",
     },
     {
       subtitle: "Montaža",
-      text: "Sami ali mi, prevoz itd.",
+      text: "Naše podjetje ali v lastni režiji",
     },
   ],
   [
     {
       subtitle: "Profili",
-      text: "Profil1, Profil2, Profil3, Profil4, Profil5, Profil6, Profil7",
+      text: "Različni modeli, različna širina, debelina in oblika",
     },
     {
       subtitle: "Barve",
-      text: "3 osnovne ali prašno po meri",
+      text: "Tri osnovne barve: antracit, rjava in bež, ostale prašno barvane po RAL barvni lestvici",
     },
     {
       subtitle: "Dolžina",
-      text: "6m",
+      text: "6m ali razrez na poljubno dolžino",
     },
     {
       subtitle: "Montaža",
-      text: "Sami ali mi, prevoz itd.",
+      text: "Naše podjetje ali v lastni režiji",
     },
   ],
   [
     {
       subtitle: "Profili",
-      text: "P062, P020, P021, P048, P063, P090, P055, kombinacija P062 in P069",
+      text: "Različni modeli, različna širina, debelina in oblika",
     },
     {
       subtitle: "Barve",
-      text: "Bela, siva, oker, beš, imitacija zlatega hreasta (renolit folija)",
+      text: "Bela, siva, oker ",
     },
     {
       subtitle: "Dolžina",
-      text: "6m",
+      text: "6m ali razrez na poljubno dolžino",
     },
     {
       subtitle: "Montaža",
-      text: "Sami ali mi, prevoz itd.",
+      text: "Naše podjetje ali v lastni režiji",
     },
   ],
 ];
@@ -257,30 +265,10 @@ export const productImages = [
 ];
 
 export const productImageTitles = [
-  [
-    "P024, balkonska ograja",
-    "P024, balkonska ograja",
-    "P024, balkonska ograja",
-    "P024, balkonska ograja",
-  ],
-  [
-    "P024, balkonska ograja",
-    "P024, balkonska ograja",
-    "P024, balkonska ograja",
-    "P024, balkonska ograja",
-  ],
-  [
-    "P024, balkonska ograja",
-    "P024, balkonska ograja",
-    "P024, balkonska ograja",
-    "P024, balkonska ograja",
-  ],
-  [
-    "P024, balkonska ograja",
-    "P024, balkonska ograja",
-    "P024, balkonska ograja",
-    "P024, balkonska ograja",
-  ],
+  ["", "", "", ""],
+  ["", "", "", ""],
+  ["", "", "", ""],
+  ["", "", "", ""],
 ];
 
 /*Footer, Menu*/
@@ -343,25 +331,25 @@ export const menuExtraInfo = [
 /* About Us */
 
 export const aboutUsMainDescriptionData =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Imperdiet laoreet nascetur in duis nibh enim sit merg ora.";
+  "Smo majhno zasebno podjetje z dolgoletnimi izkušnjami, ki s svojim znanjem, prijaznostjo in individualnim pristopom nudi kakovostne rešitve svojim strankam.";
 
 export const aboutUsInfoData = [
   {
     title: "Izkušnje",
     text: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+      "S skoraj dvajset letnimi izkušnjami našim strankam zagotavljamo strokovnost, kvaliteto in individualno obravnavo. Zavedamo se svoje odgovornosti do strank in do naših izdelkov, ki jih strankam ponujamo. Skozi vrsto let poslovanja smo postali utečena ekipa, ki ve kako zagotoviti kakovost na najvišjem nivoju. Izkušnje, zagnanost in poštenost so naša vrlina. Zadovoljstvo naših številnih strank nam daje dodatni zagon za iskanje novih idej in priložnosti.",
     ],
   },
   {
     title: "Kakovost",
     text: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, lorem turpis quam vulputate donec at. Dui viverra magna orci, sit rhoncus cursus sodales commodo placerat. ",
+      "Kakovostna storitev je ključna pri našem poslovanju. Zadovoljstvo strank je potrditev, da s svojim strokovnim pristopom in znanjem omogočamo kvalitetno storitev ter dovršene izdelke. Naš cilj je kakovostna in kvalitetna ponudba naših storitev vsem našim sedanjim in bodočim strankam.",
     ],
   },
   {
     title: "Prijazno osebje",
     text: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, lorem turpis quam vulputate donec at. Dui viverra magna orci, sit rhoncus cursus sodales commodo placerat. ",
+      "Z našim osebjem se boste srečali že s prvim telefonskim klicem. Na drugi strani se bo oglasilo prijazno osebje, ki vam bo poskušalo odgovoriti na vsa vaša vprašanja. Zavedamo se, da dobra komunikacija omogoča najti rešitev za vaše ideje in projekte.",
     ],
   },
 ];
