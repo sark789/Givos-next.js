@@ -24,12 +24,12 @@ const DescriptionSection = ({
   const themeContext = useContext(ThemeContext);
   useEffect(() => {
     if (window.innerWidth >= themeContext.breakpoints.xl) {
-      var paddingOffset = 520;
+      var paddingOffset = 492;
       if (
         themeContext.breakpoints.xl <= window.innerWidth &&
         window.innerWidth < themeContext.breakpoints.huge
       ) {
-        paddingOffset = 512;
+        paddingOffset = 484;
       }
 
       setStartpoint(
